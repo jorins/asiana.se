@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy website
 
 on:
   workflow_call:
@@ -16,6 +16,7 @@ permissions:
 
 jobs:
   deploy:
+    name: Deploy website
     runs-on: ubuntu-latest
 
     environment:

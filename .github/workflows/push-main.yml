@@ -7,12 +7,14 @@ on:
 
 jobs:
   ci:
+    name: CI
     uses: ./.github/workflows/ci.yml
     with:
       artifact-name: build_${{ github.ref_name }}_${{ github.sha }}
       artifact-path: dist
 
   cd:
+    name: CD
     needs: ci
     uses: ./.github/workflows/cd.yml
     permissions:

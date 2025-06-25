@@ -20,6 +20,7 @@ on:
 
 jobs:
   build:
+    name: Build website
     runs-on: ubuntu-latest
     steps:
       - name: Check out
