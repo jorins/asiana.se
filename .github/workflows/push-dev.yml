@@ -1,0 +1,17 @@
+name: Push to secondary branch
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+env:
+  artifact-name: build_${{ github.ref_name }}_${{ github.sha }}
+  artifact-path: dist
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+    with:
+      artifact-name: ${{ env.artifact-name }}
+      path: ${{ env.artifact-path }}

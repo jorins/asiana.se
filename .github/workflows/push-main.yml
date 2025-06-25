@@ -1,0 +1,23 @@
+name: Push to main branch
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  artifact-name: build_${{ github.ref_name }}_${{ github.sha }}
+  artifact-path: dist
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+    with:
+      artifact-name: ${{ env.artifact-name }}
+      path: ${{ env.artifact-path }}
+
+  cd:
+    uses: ./.github/workflows/cd.yml
+    with:
+      artifact-name: ${{ env.artifact-name }}
+      path: ${{ env.artifact-path }}
