@@ -18,6 +18,9 @@ jobs:
 
   cd:
     uses: ./.github/workflows/cd.yml
+    permissions:
+      pages: write
+      id-token: write
     with:
       artifact-name: ${{ vars.artifact-name }}
       artifact-path: ${{ vars.artifact-path }}
