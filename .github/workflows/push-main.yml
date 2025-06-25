@@ -17,6 +17,7 @@ jobs:
       artifact-path: ${{ vars.artifact-path }}
 
   cd:
+    needs: ci
     uses: ./.github/workflows/cd.yml
     permissions:
       pages: write
