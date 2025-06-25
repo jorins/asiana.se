@@ -18,10 +18,5 @@
     "node": ">=22"
   },
 
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "10"
-    }
-  }
+  "packageManager": "pnpm@10",
 }
