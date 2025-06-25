@@ -6,15 +6,15 @@ on:
       - main
 
 env:
-  artifact-name: build_${{ github.ref_name }}_${{ github.sha }}
-  artifact-path: dist
+  ARTIFACT_NAME: build_${{ github.ref_name }}_${{ github.sha }}
+  ARTIFACT_PATH: dist
 
 jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     with:
-      artifact-name: ${{ vars.artifact-name }}
-      artifact-path: ${{ vars.artifact-path }}
+      artifact-name: ${{ vars.ARTIFACT_NAME }}
+      artifact-path: ${{ vars.ARTIFACT_PATH }}
 
   cd:
     needs: ci
@@ -23,5 +23,5 @@ jobs:
       pages: write
       id-token: write
     with:
-      artifact-name: ${{ vars.artifact-name }}
-      artifact-path: ${{ vars.artifact-path }}
+      artifact-name: ${{ vars.ARTIFACT_NAME }}
+      artifact-path: ${{ vars.ARTIFACT_PATH }}
