@@ -9,6 +9,14 @@ on:
       artifact-path:
         required: true
         type: string
+    outputs:
+      artifact-name:
+        description: Build artifact name
+        value: ${{ inputs.artifact-name }}
+      artifact-path:
+        description: Build artifact path
+        value: ${{ inputs.artifact-path }}
+  
 
 jobs:
   build:

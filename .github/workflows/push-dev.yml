@@ -5,13 +5,9 @@ on:
     branches-ignore:
       - main
 
-env:
-  ARTIFACT_NAME: build_${{ github.ref_name }}_${{ github.sha }}
-  ARTIFACT_PATH: dist
-
 jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     with:
-      artifact-name: ${{ vars.ARTIFACT_NAME }}
-      artifact-path: ${{ vars.ARTIFACT_PATH }}
+      artifact-name: build_${{ github.ref_name }}_${{ github.sha }}
+      artifact-path: dist
