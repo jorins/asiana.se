@@ -9,14 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-
   "dependencies": {
-    "astro": "^5.10.1"
+    "astro": "^5.10.1",
+    "sass": "^1.89.2"
   },
-
   "engines": {
     "node": ">=20"
   },
-
   "packageManager": "pnpm@10"
 }
