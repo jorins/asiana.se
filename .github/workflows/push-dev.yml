@@ -13,5 +13,5 @@ jobs:
   ci:
     uses: ./.github/workflows/ci.yml
     with:
-      artifact-name: ${{ env.artifact-name }}
-      path: ${{ env.artifact-path }}
+      artifact-name: ${{ vars.artifact-name }}
+      path: ${{ vars.artifact-path }}
