@@ -9,6 +9,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  font-family: sans-serif;
 }
 
 .content {
@@ -21,18 +22,18 @@ body {
 }
 
 h1 {
-  font-size: 10rem;
+  font-size: min(10rem, 20vw);
   font-weight: 300;
-  font-family: sans-serif;
-  letter-spacing: 1rem;
+  letter-spacing: 0.15em;
   margin: 0;
 }
 
 p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 2em;
   margin: 0;
   margin-top: 1em;
+  text-wrap: pretty;
 }
 
 .redact {
