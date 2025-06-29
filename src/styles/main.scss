@@ -1,41 +1,35 @@
-$primary-color: #CCCCCC;
-$background-color: #070401;
+@use 'sass:color';
+@use './defs';
 
 body {
-  background-color: $background-color;
-  color: $primary-color;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
+  color: defs.$primary;
   text-align: center;
   font-family: sans-serif;
+  overflow-x: hidden;
+
+  font-size: 1.5rem;
 }
 
-.content {
-  display: flex;
-  height: 100%;
-  margin: auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+a {
+  color: defs.$link;
 
-h1 {
-  font-size: min(10rem, 20vw);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  margin: 0;
+  &:hover {
+    color: color.adjust(defs.$link, $lightness: 20%)
+  }
 }
 
 p {
-  font-size: 1.5rem;
   line-height: 2em;
-  margin: 0;
-  margin-top: 1em;
+  text-wrap: stable;
   text-wrap: pretty;
 }
 
-.redact {
-  background-color: $primary-color;
+.button-collection {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  @include defs.desktop {
+    flex-direction: row;
+  }
 }

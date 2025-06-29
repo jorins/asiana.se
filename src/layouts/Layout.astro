@@ -1,9 +1,12 @@
 ---
 import '../styles/main.scss'
+
+import TopBar from '../components/TopBar.astro'
+import { getLangFromUrl } from '../i18n/utils'
 ---
 
 <!doctype html>
-<html lang="se">
+<html lang={getLangFromUrl(Astro.url)}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -12,7 +15,23 @@ import '../styles/main.scss'
     <title>Asiana</title>
   </head>
   <body>
-    <slot />
+    <TopBar />
+    <div id="content">
+      <slot />
+    </div>
   </body>
 </html>
 
+<style lang="scss">
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  box-sizing: border-box;
+  width: 100%;
+}
+</style>

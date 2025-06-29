@@ -1,0 +1,27 @@
+@use "sass:color";
+
+$soft-white: #ddddd9;
+$white: #fffff9;
+$red: #882222;
+$green: #228822;
+$black: #070401;
+$blue: #7777ff;
+$purple: #ee66ee;
+
+$primary: $soft-white; 
+$highlight: $white;
+$background: $black;
+$link: $blue;
+$visited-link: $purple;
+
+$transparent-alpha: 0.75;
+$border-radius: 0.5rem;
+$shadow: 0 0 1rem color.change($black, $alpha: 0.5);
+$top-bar-height: 6rem;
+$max-width: 80rem;
+
+@mixin desktop {
+  @media (min-width: $max-width) {
+    @content
+  }
+}

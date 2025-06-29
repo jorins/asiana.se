@@ -16,5 +16,9 @@
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "pnpm@10"
+  "packageManager": "pnpm@10",
+  "devDependencies": {
+    "type-fest": "^4.41.0",
+    "typescript": "^5.8.3"
+  }
 }

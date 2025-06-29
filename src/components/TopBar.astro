@@ -1,0 +1,45 @@
+---
+import AnchorButton from './AnchorButton.astro'
+import { setUrlLang, getLangFromUrl, useLangFromUrl } from '../i18n/utils'
+import { languages, emoji } from '../i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useLangFromUrl(Astro.url)
+---
+
+<div id="top-bar">
+  <nav id="page-nav">
+    <AnchorButton href={`/${lang}/`}>{t.nav.index}</AnchorButton>
+    <AnchorButton href={`/${lang}/food`}>{t.nav.food}</AnchorButton>
+    <AnchorButton href={`/${lang}/drinks`}>{t.nav.drinks}</AnchorButton>
+  </nav>
+  <nav id="languages">
+    {Object.keys(languages).map(langCode =>
+      <AnchorButton href={setUrlLang(Astro.url, langCode)} >{emoji[langCode]}&nbsp;{languages[langCode]}</AnchorButton>
+    )}
+  </nav>
+</div>
+
+<style lang="scss">
+@use "../styles/defs.scss";
+
+#top-bar {
+  width: 100%;
+  height: defs.$top-bar-height;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: stretch;
+
+  position: sticky;
+  top: 0;
+
+  background-color: defs.$background;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+</style>

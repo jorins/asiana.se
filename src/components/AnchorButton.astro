@@ -1,0 +1,62 @@
+---
+interface Props {
+  href: string
+  grow?: boolean
+}
+
+const {
+  href,
+  grow = false
+} = Astro.props
+
+const isExternal = href.startsWith('https://')
+---
+
+<a
+  href={href}
+  class:list={[
+    grow ? 'grow' : undefined,
+    isExternal ? 'external' : 'internal',
+  ]}
+>
+  <slot />
+</a>
+
+<style lang="scss">
+@use "sass:color";
+@use "../styles/defs";
+
+a {
+  display: block;
+  padding: 1rem;
+  margin: 1rem;
+
+  border-radius: defs.$border-radius;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-wrap: nowrap;
+
+  background-color: defs.$primary;
+  color: defs.$background;
+  box-shadow: defs.$shadow;
+
+  &.external {
+    background-color: defs.$green;
+    color: defs.$primary;
+
+    &:hover {
+      background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
+    }
+  }
+
+  &:hover {
+    background-color: defs.$highlight;
+  }
+
+  &.grow {
+    flex-grow: 1
+  }
+}
+</style>

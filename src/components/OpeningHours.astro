@@ -1,0 +1,22 @@
+---
+import DualColumnTable from './DualColumnTable.astro'
+
+import { useLangFromUrl } from '../i18n/utils'
+
+const t = useLangFromUrl(Astro.url)
+---
+
+<DualColumnTable heading={t.openingHours.head}>
+  <tr>
+    <td>{t.openingHours.monToFri}</td>
+    <td>11:00 - 21:00</td>
+  </tr>
+  <tr>
+    <td>{t.openingHours.sat}</td>
+    <td>12:00 - 21:00</td>
+  </tr>
+  <tr>
+    <td>{t.openingHours.sun}</td>
+    <td>12:00 - 21:00</td>
+  </tr>
+</DualColumnTable>

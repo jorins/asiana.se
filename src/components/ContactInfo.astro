@@ -1,0 +1,31 @@
+---
+import DualColumnTable from './DualColumnTable.astro'
+
+import { useLangFromUrl } from '../i18n/utils'
+import * as strings from '../lib/strings'
+
+const t = useLangFromUrl(Astro.url)
+---
+
+<DualColumnTable heading={t.contact.head}>
+  <tr>
+    <td>{t.contact.mail}</td>
+    <td>
+      <a href={`mailto:${strings.mail}`}>{strings.mail}</a>
+    </td>
+  </tr>
+  <!--
+  <tr>
+    <td>{t.contact.telephone}</td>
+    <td>
+      <a href={`tel:${strings.telephone}`}>{strings.telephone}</a>
+    </td>
+  </tr>
+  -->
+  <tr>
+    <td>{t.contact.address}</td>
+    <td>
+      {strings.address.map(line => <>{line} <br/></>)}
+    </td>
+  </tr>
+</DualColumnTable>
