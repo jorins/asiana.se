@@ -1,45 +1,72 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 import AnchorButton from './AnchorButton.astro'
+import ButtonCollection from './ButtonCollection.astro'
 import { setUrlLang, getLangFromUrl, useLangFromUrl } from '../i18n/utils'
-import { languages, emoji } from '../i18n/ui'
+import { languages } from '../i18n/ui'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useLangFromUrl(Astro.url)
 ---
 
-<div id="top-bar">
-  <nav id="page-nav">
-    <AnchorButton href={`/${lang}/`}>{t.nav.index}</AnchorButton>
-    <AnchorButton href={`/${lang}/food`}>{t.nav.food}</AnchorButton>
-    <AnchorButton href={`/${lang}/drinks`}>{t.nav.drinks}</AnchorButton>
-  </nav>
-  <nav id="languages">
-    {Object.keys(languages).map(langCode =>
-      <AnchorButton href={setUrlLang(Astro.url, langCode)} >{emoji[langCode]}&nbsp;{languages[langCode]}</AnchorButton>
-    )}
-  </nav>
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <nav class="page-nav">
+      <ButtonCollection>
+        <AnchorButton href={`/${lang}/`} grow="grow">{t.nav.index}</AnchorButton>
+        <AnchorButton href={`/${lang}/food`} grow="grow">{t.nav.food}</AnchorButton>
+        <AnchorButton href={`/${lang}/drinks`} grow="grow">{t.nav.drinks}</AnchorButton>
+      </ButtonCollection>
+    </nav>
+    <nav class="languages">
+      {Object.keys(languages).map(langCode =>
+        <a href={setUrlLang(Astro.url, langCode)}>
+          <Icon
+            name=`circle-flags:lang-${langCode}`
+            size="4rem"
+            style="margin: 1rem;"
+          />
+        </a>
+      )}
+    </nav>
+  </div>
 </div>
 
 <style lang="scss">
-@use "../styles/defs.scss";
+@use "../styles/defs";
 
-#top-bar {
+.top-bar {
   width: 100%;
   height: defs.$top-bar-height;
-
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: stretch;
-
   position: sticky;
   top: 0;
 
   background-color: defs.$background;
+  box-shadow: defs.$shadow;
 }
 
-nav {
+.top-bar-inner {
+  max-width: defs.$max-width;
+  height: defs.$top-bar-height;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.page-nav, .languages {
   display: flex;
   flex-direction: row;
+  align-items: center;
+
 }
+
+.page-nav {
+  flex-grow: 1;
+}
+
 </style>

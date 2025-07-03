@@ -14,18 +14,19 @@ const t = useLangFromUrl(Astro.url)
       <a href={`mailto:${strings.mail}`}>{strings.mail}</a>
     </td>
   </tr>
-  <!--
-  <tr>
-    <td>{t.contact.telephone}</td>
-    <td>
-      <a href={`tel:${strings.telephone}`}>{strings.telephone}</a>
-    </td>
-  </tr>
-  -->
-  <tr>
-    <td>{t.contact.address}</td>
-    <td>
-      {strings.address.map(line => <>{line} <br/></>)}
-    </td>
-  </tr>
 </DualColumnTable>
+
+<style lang="scss">
+td {
+  vertical-align: top;
+  width: 50%;
+
+  &:first-child {
+    text-align: right;
+  }
+
+  &:last-child {
+    text-align: left;
+  }
+}
+</style>

@@ -18,20 +18,21 @@ const { heading } = Astro.props
 </table>
 
 <style lang="scss">
-  table {
-    border-spacing: 2rem 1rem;
+table {
+  width: 100%;
+  border-spacing: 2rem 1rem;
+}
+
+td {
+  vertical-align: top;
+  width: 50%;
+
+  &:first-child {
+    text-align: right;
   }
 
-  td {
-    vertical-align: top;
-    width: 50%;
-
-    &:first-child {
-      text-align: right;
-    }
-
-    &:last-child {
-      text-align: left;
-    }
+  &:last-child {
+    text-align: left;
   }
+}
 </style>

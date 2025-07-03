@@ -1,0 +1,81 @@
+---
+export { getStaticPaths } from '../../lib/util'
+import Layout from '../../layouts/Layout.astro';
+
+import Section from '../../components/Section.astro'
+
+import { getCollection } from 'astro:content'
+import { getAndRender } from '../../lib/util'
+import { useLangFromUrl } from '../../i18n/utils'
+
+const t = useLangFromUrl(Astro.url)
+const hero = await getAndRender(Astro.url, 'drinks/hero')
+const boba = await getAndRender(Astro.url, 'drinks/boba')
+const alcohol = await getAndRender(Astro.url, 'drinks/alcohol')
+const alcoholList = await getAndRender(Astro.url, 'drinks/alcohol-list')
+
+const categorisedAlcohol: Record<string, any> = {}
+for (const entry of await getCollection('alcohol')) {
+  categorisedAlcohol[entry.data.category] ??= []
+  categorisedAlcohol[entry.data.category].push(entry.data)
+}
+console.log(categorisedAlcohol)
+---
+
+<Layout>
+  <Section
+    id="hero"
+    imageSrc="/img/pexels-osmachko-230477-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <hero.Content />
+    </Fragment>
+  </Section>
+
+  <Section
+    id="boba"
+    alt={true}
+    imageSrc="/img/pexels-rdne-6412836-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <boba.Content />
+    </Fragment>
+  </Section>
+
+  <Section
+    id="alcohol"
+    imageSrc="/img/pexels-valeriya-1123260-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <alcohol.Content />
+    </Fragment>
+
+    <Fragment slot="body">
+      <alcoholList.Content />
+      {Object.entries(categorisedAlcohol).map(([category, entries]) => {
+        const anyGlass = entries.some(entry => entry.priceGlass !== null)
+        const anyBottle = entries.some(entry => entry.priceBottle !== null)
+        return <>
+        <h3>{t.alcohol[category]}</h3>
+        <table>
+          <tr>
+            <th>{t.alcohol.product}</th>
+            {anyGlass && <th>{t.alcohol.priceGlass}</th>}
+            {anyBottle && <th>{t.alcohol.priceBottle}</th>}
+          </tr>
+          {entries.map(entry => 
+          <tr>
+            <td>{entry.slug}</td>
+            {entry.priceGlass && <td>{entry.priceGlass}:-</td>}
+            {entry.priceBottle && <td>{entry.priceBottle}:-</td>}
+          </tr>
+          )}
+        </table>
+      </>
+      })}
+    </Fragment>
+  </Section>
+</Layout>

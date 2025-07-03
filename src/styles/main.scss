@@ -6,8 +6,12 @@ body {
   text-align: center;
   font-family: sans-serif;
   overflow-x: hidden;
-
   font-size: 1.5rem;
+}
+
+:target {
+  scroll-margin-top: defs.$top-bar-height;
+  color: defs.$highlight;
 }
 
 a {
@@ -22,14 +26,4 @@ p {
   line-height: 2em;
   text-wrap: stable;
   text-wrap: pretty;
-}
-
-.button-collection {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  @include defs.desktop {
-    flex-direction: row;
-  }
 }

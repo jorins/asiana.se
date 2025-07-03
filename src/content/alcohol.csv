@@ -1,0 +1,7 @@
+slug,category,priceGlass,priceBottle
+"Cheap wine","red_wine","70","240"
+"Expensive wine","red_wine","120","300"
+"Apple cider","cider","60",
+"Pear cider","cider","60",
+"Fruity cider","cider","65",
+"Dry cider","cider","70",

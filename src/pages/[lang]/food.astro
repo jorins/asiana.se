@@ -1,0 +1,47 @@
+---
+export { getStaticPaths } from '../../lib/util'
+import Layout from '../../layouts/Layout.astro';
+
+import Section from '../../components/Section.astro'
+
+import { getAndRender } from '../../lib/util'
+import { useLangFromUrl } from '../../i18n/utils'
+
+const t = useLangFromUrl(Astro.url)
+const hero = await getAndRender(Astro.url, 'food/hero')
+const hotpot = await getAndRender(Astro.url, 'food/hotpot')
+const lunch = await getAndRender(Astro.url, 'food/lunch')
+---
+
+<Layout>
+  <Section
+    id="hero"
+    imageSrc="/img/pexels-mdsnmdsnmdsn-3728295-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <hero.Content />
+    </Fragment>
+  </Section>
+
+  <Section
+    id="hotpot"
+    alt={true}
+    imageSrc="/img/pexels-huuhuynh-19775602-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <hotpot.Content />
+    </Fragment>
+  </Section>
+
+  <Section
+    id="lunch"
+    imageSrc="/img/pexels-xmtnguyen-699953-crop.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <lunch.Content />
+    </Fragment>
+  </Section>
+</Layout>

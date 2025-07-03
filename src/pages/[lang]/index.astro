@@ -1,78 +1,78 @@
 ---
 export { getStaticPaths } from '../../lib/util'
-
-import { getEntry, render } from 'astro:content'
-
 import Layout from '../../layouts/Layout.astro';
 
+import ButtonCollection from '../../components/ButtonCollection.astro'
 import Countdown from '../../components/Countdown.astro'
 import OpeningHours from '../../components/OpeningHours.astro'
 import AnchorButton from '../../components/AnchorButton.astro'
-import ContactInfo from '../../components/ContactInfo.astro'
 import Section from '../../components/Section.astro'
 
-import * as strings from  '../../lib/strings'
+import * as company from '../../content/company.json'
 import { getAndRender } from '../../lib/util'
 import { useLangFromUrl } from '../../i18n/utils'
-import { getCollection } from 'astro:content';
 
 const t = useLangFromUrl(Astro.url)
-const hero = await getAndRender(Astro.url, 'hero')
-const location = await getAndRender(Astro.url, 'location')
-const food = await getAndRender(Astro.url, 'food')
-const drinks = await getAndRender(Astro.url, 'drinks')
+const hero = await getAndRender(Astro.url, 'index/hero')
+const location = await getAndRender(Astro.url, 'index/location')
+const food = await getAndRender(Astro.url, 'index/food')
+const drinks = await getAndRender(Astro.url, 'index/drinks')
 ---
 
 <Layout>
   <div class="hero-wrapper">
     <div class="hero">
-      <h1 class="title">ASIANA</h1>
+      <img src="/img/logo-white.svg" class="logo">
       <Countdown />
       <hero.Content />
-      <div class="doubling-block">
-        <div><AnchorButton href={strings.orderLink} grow=1>{t.nav.order}</AnchorButton></div>
-        <div><AnchorButton href="#location" grow=1>{t.nav.locate}</AnchorButton></div>
-        <div><OpeningHours /></div>
-        <div><ContactInfo /></div>
+      <ButtonCollection >
+        <AnchorButton href={company.orderLink} grow='grow' classes='highlight'>{t.nav.order}</AnchorButton>
+        <AnchorButton href="#location" grow='grow'>{t.nav.locate}</AnchorButton>
+      </ButtonCollection>
+      <OpeningHours />
       </div>
     </div>
   </div>
 
   <Section
-    id="location"
-    containerColor="red"
-    imageUrl="/img/map.jpg"
-    imageHref={strings.mapLink}
-    imageAlt="..."
-    imageAlign="left"
-  >
-    <location.Content />
-    <AnchorButton href={strings.mapLink}>{t.nav.showOnMaps}</AnchorButton>
-  </Section>
-
-  <Section
     id="food"
-    containerColor="black"
-    imageUrl="/img/pexels-mdsnmdsnmdsn-3728295-crop.jpg"
+    imageSrc="/img/pexels-mdsnmdsnmdsn-3728295-crop.jpg"
     imageAlt="..."
-    imageAlign="right"
   >
-    <food.Content />
-    <div class="button-collection">
-      <AnchorButton href={strings.orderLink}>{t.nav.order}</AnchorButton>
-      <AnchorButton href="food">{t.nav.readMore}</AnchorButton>
-    </div>
+    <Fragment slot="head">
+      <food.Content />
+      <ButtonCollection>
+        <AnchorButton href={company.orderLink}>{t.nav.order}</AnchorButton>
+        <AnchorButton href="food">{t.nav.readMore}</AnchorButton>
+      </ButtonCollection>
+    </Fragment>
   </Section>
 
   <Section
     id="drinks"
-    containerColor="red"
-    imageUrl="/img/pexels-rdne-6412836-crop.jpg"
+    alt={true},
+    imageSrc="/img/pexels-rdne-6412836-crop.jpg"
     imageAlt="..."
-    imageAlign="left"
   >
-    <drinks.Content />
-    <AnchorButton href="drinks">{t.nav.readMore}</AnchorButton>
+    <Fragment slot="head">
+      <drinks.Content />
+      <ButtonCollection>
+        <AnchorButton href="drinks">{t.nav.readMore}</AnchorButton>
+      </ButtonCollection>
+    </Fragment>
+  </Section>
+
+  <Section
+    id="location"
+    imageSrc="/img/map.jpg"
+    imageAlt="..."
+  >
+    <Fragment slot="head">
+      <location.Content />
+      <ButtonCollection>
+        <AnchorButton href={company.mapLink}>{t.nav.showOnMaps}</AnchorButton>
+      </ButtonCollection>
+    </Fragment>
   </Section>
 </Layout>
 
@@ -109,33 +109,47 @@ const drinks = await getAndRender(Astro.url, 'drinks')
 }
 
 .doubling-block {
+  margin: 0 auto;
+  width: 100%;
   display: flex;
 
-  flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
   gap: 1rem;
 
   > div {
+    margin: auto;
     flex-grow: 1;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    width: 30rem;
+    min-width: 30rem;
     max-width: 100%;
+  }
+
+  @include defs.mobile {
+    flex-direction: column;
   }
 
   @include defs.desktop {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
-.title {
-  font-size: min(10rem, 20vw);
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  margin: 0;
+.logo {
+  max-height: 12rem;
+  margin: 2rem;
 }
+
+.highlight {
+  color: defs.$highlight;
+  background-color: defs.$green;
+
+  &:hover {
+    background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
+  }
+}
+
 
 </style>

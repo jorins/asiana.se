@@ -20,3 +20,18 @@ const t = useLangFromUrl(Astro.url)
     <td>12:00 - 21:00</td>
   </tr>
 </DualColumnTable>
+
+<style lang="scss">
+td {
+  vertical-align: top;
+  width: 50%;
+
+  &:first-child {
+    text-align: right;
+  }
+
+  &:last-child {
+    text-align: left;
+  }
+}
+</style>

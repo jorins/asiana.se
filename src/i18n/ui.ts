@@ -7,12 +7,7 @@ export type LanguageStringsNode = {[key: string]: LanguageStringsNode | string}
 export const languages = {
   sv: 'Svenska',
   en: 'English',
-}
-
-export const emoji: Record<LanguageCode, string> = {
-  sv: '🇸🇪',
-  en: '🇬🇧',
-}
+} as const
 
 export const defaultLang: keyof typeof languages = 'sv'
 
@@ -22,7 +17,7 @@ const sv = {
     food: 'Mat',
     drinks: 'Dryck',
 
-    order: 'Se meny & beställ upphämtning',
+    order: 'Se meny & beställ',
     locate: 'Hitta hit',
     showOnMaps: 'Visa på Google Maps',
     readMore: 'Läs mer',
@@ -43,11 +38,28 @@ const sv = {
   },
 
   time: {
+    monday: 'Måndag',
+    tuesday: 'Tisdag',
+    wednesday: 'Onsdag',
+    thursday: 'Torsdag',
+    fredag: 'Friday',
+    saturday: 'Lördag',
+    sunday: 'Söndag',
+
     opening: 'Öppnar om',
     days: 'dagar',
     hours: 'timmar',
     minutes: 'minuter',
     seconds: 'sekunder',
+  },
+
+  alcohol: {
+    product: 'Dryck',
+    priceGlass: 'Glas',
+    priceBottle: 'Flaska',
+    red_wine: 'Rött vin',
+    white_wine: 'Vitt vin',
+    cider: 'Cider',
   }
 }
 

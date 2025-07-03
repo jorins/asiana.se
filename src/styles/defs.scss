@@ -8,9 +8,13 @@ $black: #070401;
 $blue: #7777ff;
 $purple: #ee66ee;
 
+$blueish-grey: #50596a;
+$dark-blueish-grey: #1b1d22;
+
 $primary: $soft-white; 
 $highlight: $white;
-$background: $black;
+$background: $dark-blueish-grey;
+$background-alt: $blueish-grey;
 $link: $blue;
 $visited-link: $purple;
 
@@ -22,6 +26,12 @@ $max-width: 80rem;
 
 @mixin desktop {
   @media (min-width: $max-width) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $max-width) {
     @content
   }
 }

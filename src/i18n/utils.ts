@@ -7,7 +7,7 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-export function setUrlLang(url: URL, lang: LanguageCode): string {
+export function setUrlLang(url: URL, lang: string): string {
   const [, , ...rest] = url.pathname.split('/');
   return `/${lang}/${rest.join('/')}`
 }

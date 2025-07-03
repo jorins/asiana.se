@@ -1,2 +1,2 @@
 On **August 8th**, restaurant Asiana opens in northern Jordbro.  Here you will
-find the best of the east asian kitchen. Hot pot, sushi, and much more!
+find the best of east asian cuisine. Hot pot, sushi, and much more!

@@ -1,20 +1,21 @@
 ---
 export type Props = {
   id: string
+  alt?: boolean
+  classes?: string | string[]
   containerColor?: string
-  imageUrl: string,
+  imageSrc: string,
   imageAlt: string,
-  imageHref?: string,
-  imageAlign?: 'left' | 'right'
 }
 
 const {
   id,
+  alt = false,
+  classes = [],
   containerColor = 'red',
-  imageHref,
-  imageUrl,
+  imageSrc: imageUrl,
   imageAlt,
-  imageAlign = 'left'
+  ...rest
 } = Astro.props
 ---
 
@@ -22,61 +23,81 @@ const {
   id={id}
   class:list={[
     'container',
+    alt && 'alt',
     `color-${containerColor}`
   ]}
+  {...rest}
 >
   <div class:list={[
     'inner',
-    imageAlign === 'right' ? 'reverse' : null,
   ]}>
-    <img
-      class="image"
-      width=400
-      height=400
-      src={imageUrl}
-      alt={imageAlt}
-      class={`align-${imageAlign}`}
-    />
+    <div class='section-head'>
+      <img
+        class="image"
+        width=400
+        height=400
+        src={imageUrl}
+        alt={imageAlt}
+      />
 
-    <div class="content">
-      <slot />
+      <div class="content">
+        <slot name="head"/>
+      </div>
+    </div>
+    <div class="section-body">
+      <slot name="body"/>
     </div>
   </div>
 </div>
 
 <style lang="scss">
 @use "sass:color";
-@use "../styles/defs.scss";
+@use "../styles/defs";
 
 .container {
-  &.color-red {
-    background-color: defs.$red;
-  }
-
-  &.color-black {
-    background-color: defs.$black;
-  }
+  background-color: defs.$background-alt;
 }
 
 .inner {
-  padding: 1rem;
-  box-sizing: border-box;
-
-  margin: auto;
+  width: 100%;
   max-width: defs.$max-width;
+  margin: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
+  padding: 2rem 0;
+}
 
+.section-head {
+  width: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
   @include defs.desktop {
     flex-direction: row;
+  }
+}
 
-    &.reverse {
+.section-body {
+  margin: auto;
+  width: 100%;
+}
+
+.alt {
+  background-color: defs.$background;
+
+  @include defs.desktop {
+    .section-head {
+      flex-direction: row;
       flex-direction: row-reverse;
     }
   }
 }
+
 
 .content {
   flex-grow: 1;
