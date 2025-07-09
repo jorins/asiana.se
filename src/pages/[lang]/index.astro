@@ -1,7 +1,9 @@
 ---
 export { getStaticPaths } from '../../lib/util'
-import Layout from '../../layouts/Layout.astro';
 
+import { Image } from 'astro:assets'
+
+import Layout from '../../layouts/Layout.astro';
 import ButtonCollection from '../../components/ButtonCollection.astro'
 import Countdown from '../../components/Countdown.astro'
 import OpeningHours from '../../components/OpeningHours.astro'
@@ -12,17 +14,29 @@ import * as company from '../../content/company.json'
 import { getAndRender } from '../../lib/util'
 import { useLangFromUrl } from '../../i18n/utils'
 
+import logo from '../../assets/logo-white.svg'
+import heroImage from '../../assets/pexels-christel-heimdal-jensen-628776-resize.jpg'
+import foodImage from '../../assets/pexels-mdsnmdsnmdsn-3728295-crop.jpg'
+import drinksImage from '../../assets/pexels-rdne-6412836-crop.jpg'
+import mapImage from '../../assets/map.jpg'
+
 const t = useLangFromUrl(Astro.url)
 const hero = await getAndRender(Astro.url, 'index/hero')
 const location = await getAndRender(Astro.url, 'index/location')
 const food = await getAndRender(Astro.url, 'index/food')
 const drinks = await getAndRender(Astro.url, 'index/drinks')
+const heroImageSrc = `url("${heroImage.src}")`
+
 ---
 
 <Layout>
   <div class="hero-wrapper">
     <div class="hero">
-      <img src="/img/logo-white.svg" class="logo">
+      <Image
+        src={logo}
+        alt="Asiana"
+        class="logo"
+      />
       <Countdown />
       <hero.Content />
       <ButtonCollection >
@@ -36,7 +50,7 @@ const drinks = await getAndRender(Astro.url, 'index/drinks')
 
   <Section
     id="food"
-    imageSrc="/img/pexels-mdsnmdsnmdsn-3728295-crop.jpg"
+    image={foodImage}
     imageAlt="..."
   >
     <Fragment slot="head">
@@ -51,7 +65,7 @@ const drinks = await getAndRender(Astro.url, 'index/drinks')
   <Section
     id="drinks"
     alt={true},
-    imageSrc="/img/pexels-rdne-6412836-crop.jpg"
+    image={drinksImage}
     imageAlt="..."
   >
     <Fragment slot="head">
@@ -64,7 +78,7 @@ const drinks = await getAndRender(Astro.url, 'index/drinks')
 
   <Section
     id="location"
-    imageSrc="/img/map.jpg"
+    image={mapImage}
     imageAlt="..."
   >
     <Fragment slot="head">
@@ -76,14 +90,14 @@ const drinks = await getAndRender(Astro.url, 'index/drinks')
   </Section>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ heroImageSrc }}>
 @use 'sass:color';
 @use "../../styles/defs";
 
 .hero-wrapper {
   min-height: calc(100vh - defs.$top-bar-height);
 
-  background-image: url('/img/pexels-christel-heimdal-jensen-628776-resize.jpg');
+  background-image: var(--heroImageSrc);
   background-attachment: local;
   background-position: center;
   background-repeat: no-repeat;

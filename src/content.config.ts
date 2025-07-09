@@ -17,6 +17,16 @@ export const translations = Object.fromEntries(i18n!.locales.map(locale => [
   defineCollectionByLocale(locale as string)
 ]))
 
+export const jsonCollections = Object.fromEntries(i18n!.locales.map(locale => [
+  defineCollection({
+    loader: glob({
+      pattern: '*.json',
+      base: `./src/content/${locale}`,
+    }),
+  })
+])
+)
+
 const alcohol = defineCollection({
   loader: file('src/content/alcohol.csv', { parser: (text) => {
     const res = parseCsv(text, {

@@ -1,10 +1,13 @@
 ---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
 export type Props = {
   id: string
   alt?: boolean
   classes?: string | string[]
   containerColor?: string
-  imageSrc: string,
+  image?: ImageMetadata,
   imageAlt: string,
 }
 
@@ -13,7 +16,7 @@ const {
   alt = false,
   classes = [],
   containerColor = 'red',
-  imageSrc: imageUrl,
+  image,
   imageAlt,
   ...rest
 } = Astro.props
@@ -32,13 +35,11 @@ const {
     'inner',
   ]}>
     <div class='section-head'>
-      <img
+      {image && <Image
         class="image"
-        width=400
-        height=400
-        src={imageUrl}
+        src={image}
         alt={imageAlt}
-      />
+      />}
 
       <div class="content">
         <slot name="head"/>

@@ -14,6 +14,10 @@ const boba = await getAndRender(Astro.url, 'drinks/boba')
 const alcohol = await getAndRender(Astro.url, 'drinks/alcohol')
 const alcoholList = await getAndRender(Astro.url, 'drinks/alcohol-list')
 
+import heroImage from '../../assets/pexels-osmachko-230477-crop.jpg'
+import bobaImage from '../../assets/pexels-rdne-6412836-crop.jpg'
+import alcoholImage from '../../assets/pexels-valeriya-1123260-crop.jpg'
+
 const categorisedAlcohol: Record<string, any> = {}
 for (const entry of await getCollection('alcohol')) {
   categorisedAlcohol[entry.data.category] ??= []
@@ -25,7 +29,7 @@ console.log(categorisedAlcohol)
 <Layout>
   <Section
     id="hero"
-    imageSrc="/img/pexels-osmachko-230477-crop.jpg"
+    image={heroImage}
     imageAlt="..."
   >
     <Fragment slot="head">
@@ -36,7 +40,7 @@ console.log(categorisedAlcohol)
   <Section
     id="boba"
     alt={true}
-    imageSrc="/img/pexels-rdne-6412836-crop.jpg"
+    image={bobaImage}
     imageAlt="..."
   >
     <Fragment slot="head">
@@ -46,7 +50,7 @@ console.log(categorisedAlcohol)
 
   <Section
     id="alcohol"
-    imageSrc="/img/pexels-valeriya-1123260-crop.jpg"
+    image={alcoholImage}
     imageAlt="..."
   >
     <Fragment slot="head">
