@@ -1,14 +1,15 @@
 ---
-import { useLangFromUrl } from '../i18n/utils'
-const t = useLangFromUrl(Astro.url)
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
 ---
 
 <span id="countdown">
-  {t.time.opening}
-  <span id="days">...</span> {t.time.days},
-  <span id="hours">...</span> {t.time.hours},
-  <span id="minutes">...</span> {t.time.minutes},
-  <span id="seconds">...</span> {t.time.seconds}
+  {l.get('ui', 'time.opening')}
+  <span id="days">...</span> {l.get('ui', 'time.days')},
+  <span id="hours">...</span> {l.get('ui', 'time.hours')},
+  <span id="minutes">...</span> {l.get('ui', 'time.minutes')},
+  <span id="seconds">...</span> {l.get('ui', 'time.seconds')}
 </span>
 
 <script is:inline lang="typescript">

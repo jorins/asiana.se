@@ -1,0 +1,10 @@
+"slug","category","position","price","spice"
+"cheap_wine","red_wine",1,"70;250",0
+"expensive_wine","red_wine",2,"100;350",0
+
+"apple_cider","cider",1,70,0
+"pear_cider","cider",2,70,0
+"dry_cider","cider",3,80,0
+
+"matcha_boba","boba",1,"40;60",0
+"lychee_boba","boba",2,"40;60",0

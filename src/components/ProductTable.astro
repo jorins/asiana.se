@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content'
+
+export interface Props {
+  group: string,
+}
+
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+
+const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
+
+const { group } = Astro.props
+
+const productDefs = await getCollection(`${group}ProductDefinitions`)
+const localisation = await getCollection(`${lang}${group.charAt(0).toUpperCase()}${group.substring(1).toLowerCase()}`)
+
+const productsByCategory = {}
+
+productDefs
+  .map(product => product.data)
+  .sort((a, b) => a.position - b.position)
+  .forEach(product => {
+    productsByCategory[product.category] ??= []
+    productsByCategory[product.category].push(product)
+  })
+---
+
+<Fragment>
+  {Object.entries(productsByCategory).map(([category, products]) => { 
+  // const x = getEntry()
+  return <>
+    <h3>{category}</h3>
+    <table>
+      <tr>
+        <th>product</th>
+        <th>prices</th>
+        <th></th>
+      </tr>
+      {products.map(product =>
+        <tr>
+          <td>{product.slug}</td>
+          <td>{product.price.join(' / ')}</td>
+        </tr>
+      )}
+    </table>
+  </>
+  })}
+</Fragment>

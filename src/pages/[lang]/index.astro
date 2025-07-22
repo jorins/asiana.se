@@ -9,10 +9,11 @@ import Countdown from '../../components/Countdown.astro'
 import OpeningHours from '../../components/OpeningHours.astro'
 import AnchorButton from '../../components/AnchorButton.astro'
 import Section from '../../components/Section.astro'
+import ProductTable from '../../components/ProductTable.astro'
 
-import * as company from '../../content/company.json'
-import { getAndRender } from '../../lib/util'
-import { useLangFromUrl } from '../../i18n/utils'
+import company from '../../content/company.json'
+import { getAndRenderMarkdown } from '../../lib/util'
+import { getLocaleFromUrl, Localisation } from '../../lib/i18n'
 
 import logo from '../../assets/logo-white.svg'
 import heroImage from '../../assets/pexels-christel-heimdal-jensen-628776-resize.jpg'
@@ -20,13 +21,14 @@ import foodImage from '../../assets/pexels-mdsnmdsnmdsn-3728295-crop.jpg'
 import drinksImage from '../../assets/pexels-rdne-6412836-crop.jpg'
 import mapImage from '../../assets/map.jpg'
 
-const t = useLangFromUrl(Astro.url)
-const hero = await getAndRender(Astro.url, 'index/hero')
-const location = await getAndRender(Astro.url, 'index/location')
-const food = await getAndRender(Astro.url, 'index/food')
-const drinks = await getAndRender(Astro.url, 'index/drinks')
+const locale = getLocaleFromUrl(Astro.url)
+const l = new Localisation(locale)
+const hero = await getAndRenderMarkdown(Astro.url, 'index/hero')
+const food = await getAndRenderMarkdown(Astro.url, 'index/food')
+const drinks = await getAndRenderMarkdown(Astro.url, 'index/drinks')
+const drinksList = await getAndRenderMarkdown(Astro.url, 'index/drinks-list')
+const location = await getAndRenderMarkdown(Astro.url, 'index/location')
 const heroImageSrc = `url("${heroImage.src}")`
-
 ---
 
 <Layout>
@@ -35,13 +37,13 @@ const heroImageSrc = `url("${heroImage.src}")`
       <Image
         src={logo}
         alt="Asiana"
-        class="logo"
+        class:list={["logo"]}
       />
       <Countdown />
       <hero.Content />
       <ButtonCollection >
-        <AnchorButton href={company.orderLink} grow='grow' classes='highlight'>{t.nav.order}</AnchorButton>
-        <AnchorButton href="#location" grow='grow'>{t.nav.locate}</AnchorButton>
+        <AnchorButton href={company.orderLink} grow='grow' classes='highlight'>{l.get('ui', 'nav.order')}</AnchorButton>
+        <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
       </ButtonCollection>
       <OpeningHours />
       </div>
@@ -51,40 +53,43 @@ const heroImageSrc = `url("${heroImage.src}")`
   <Section
     id="food"
     image={foodImage}
-    imageAlt="..."
+    imageAlt={l.get('alt', 'food')}
   >
     <Fragment slot="head">
       <food.Content />
-      <ButtonCollection>
-        <AnchorButton href={company.orderLink}>{t.nav.order}</AnchorButton>
-        <AnchorButton href="food">{t.nav.readMore}</AnchorButton>
-      </ButtonCollection>
+    </Fragment>
+
+    <Fragment slot="body">
+      <ProductTable group='food' />
     </Fragment>
   </Section>
 
   <Section
     id="drinks"
-    alt={true},
     image={drinksImage}
-    imageAlt="..."
+    imageAlt={l.get('alt', 'drinks')}
   >
     <Fragment slot="head">
       <drinks.Content />
-      <ButtonCollection>
-        <AnchorButton href="drinks">{t.nav.readMore}</AnchorButton>
-      </ButtonCollection>
+    </Fragment>
+
+    <Fragment slot="body">
+      <drinksList.Content />
+      <ProductTable group='drinks' />
     </Fragment>
   </Section>
+
+ 
 
   <Section
     id="location"
     image={mapImage}
-    imageAlt="..."
+    imageAlt={l.get('alt', 'map')}
   >
     <Fragment slot="head">
       <location.Content />
       <ButtonCollection>
-        <AnchorButton href={company.mapLink}>{t.nav.showOnMaps}</AnchorButton>
+        <AnchorButton href={company.mapLink}>{l.get('ui', 'nav.showOnMaps')}</AnchorButton>
       </ButtonCollection>
     </Fragment>
   </Section>
@@ -95,7 +100,7 @@ const heroImageSrc = `url("${heroImage.src}")`
 @use "../../styles/defs";
 
 .hero-wrapper {
-  min-height: calc(100vh - defs.$top-bar-height);
+  min-height: 100vh;
 
   background-image: var(--heroImageSrc);
   background-attachment: local;
@@ -106,7 +111,7 @@ const heroImageSrc = `url("${heroImage.src}")`
 
 .hero {
   box-sizing: border-box;
-  min-height: calc(100vh - defs.$top-bar-height);
+  min-height: 100vh;
   width: defs.$max_width;
   max-width: 100vw;
 
@@ -152,7 +157,8 @@ const heroImageSrc = `url("${heroImage.src}")`
 }
 
 .logo {
-  max-height: 12rem;
+  max-height: 20rem;
+  height: 100%;
   margin: 2rem;
 }
 

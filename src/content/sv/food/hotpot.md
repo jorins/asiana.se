@@ -1,2 +1,0 @@
-# Hotpot
-Hotpot är mat!

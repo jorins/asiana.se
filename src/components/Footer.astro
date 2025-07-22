@@ -1,20 +1,22 @@
 ---
 import * as company from '../content/company.json'
-import { useLangFromUrl } from '../i18n/utils.ts'
-const t = useLangFromUrl(Astro.url)
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+const locale = getLocaleFromUrl(Astro.url)
+const l = new Localisation(locale)
+
 ---
 
 <footer>
   <p class="copyright">&copy; {company.name} {new Date().getFullYear()}</p>
   <div class="content">
     <div class="address">
-      <h1>{t.contact.address}</h1>
+      <h1>{l.get('ui', 'contact.address')}</h1>
       {company.address.map(line => 
         <>{line}<br /></>
       )}
     </div>
     <div class="mail">
-      <h1>{t.contact.mail}</h1>
+      <h1>{l.get('ui', 'contact.mail')}</h1>
       <a href=`mailto:${company.mail}`>{company.mail}</a>
     </div>
   </div>

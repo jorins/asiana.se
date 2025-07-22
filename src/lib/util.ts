@@ -1,6 +1,6 @@
 import { i18n } from 'astro:config/client'
 import { getEntry, render } from 'astro:content'
-import { getLangFromUrl } from '../i18n/utils'
+import { getLocaleFromUrl } from './i18n'
 
 /**
  * Common get static paths function that just returns an entry for each language
@@ -14,11 +14,12 @@ export function getStaticPaths() {
 /**
  * Wrapper for getEntry
  */
-export async function getAndRender(url: URL, slug: string) {
-  const locale = getLangFromUrl(url)
-  const entry = await getEntry(locale, slug)
+export async function getAndRenderMarkdown(url: URL, slug: string) {
+  const locale = getLocaleFromUrl(url)
+  const collection = locale + 'Md'
+  const entry = await getEntry(collection, slug)
   if (entry === undefined) {
-    throw new Error(`Could not find entry '${slug}' in collection '${locale}'`)
+    throw new Error(`Could not find entry '${slug}' in collection '${collection}'`)
   }
-  return await getEntry(locale, slug)!.then(entry => render(entry))
+  return render(entry)
 }

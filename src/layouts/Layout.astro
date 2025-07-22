@@ -3,11 +3,13 @@ import '../styles/main.scss'
 
 import TopBar from '../components/TopBar.astro'
 import Footer from '../components/Footer.astro'
-import { getLangFromUrl } from '../i18n/utils'
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+const lang = getLocaleFromUrl(Astro.url)
+
 ---
 
 <!doctype html>
-<html lang={getLangFromUrl(Astro.url)}>
+<html {lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />

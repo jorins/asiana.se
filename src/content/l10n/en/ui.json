@@ -1,0 +1,10 @@
+{
+  "nav.order": "Order",
+  "nav.locate": "Find us",
+  "nav.showOnMaps": "Show on Google Maps",
+
+  "openingHours.head": "Opening hours",
+  "openingHours.monToFri": "Monday to Friday",
+  "openingHours.sat": "Saturday",
+  "openingHours.sun": "Sunday"
+}

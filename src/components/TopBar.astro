@@ -1,64 +1,44 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import AnchorButton from './AnchorButton.astro'
-import ButtonCollection from './ButtonCollection.astro'
-import { setUrlLang, getLangFromUrl, useLangFromUrl } from '../i18n/utils'
-import { languages } from '../i18n/ui'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useLangFromUrl(Astro.url)
+import { setUrlLocale, languages } from '../lib/i18n'
 ---
 
-<div class="top-bar">
-  <div class="top-bar-inner">
-    <nav class="page-nav">
-      <ButtonCollection>
-        <AnchorButton href={`/${lang}/`} grow="grow">{t.nav.index}</AnchorButton>
-        <AnchorButton href={`/${lang}/food`} grow="grow">{t.nav.food}</AnchorButton>
-        <AnchorButton href={`/${lang}/drinks`} grow="grow">{t.nav.drinks}</AnchorButton>
-      </ButtonCollection>
-    </nav>
-    <nav class="languages">
-      {Object.keys(languages).map(langCode =>
-        <a href={setUrlLang(Astro.url, langCode)}>
-          <Icon
-            name=`circle-flags:lang-${langCode}`
-            size="4rem"
-            style="margin: 1rem;"
-          />
-        </a>
-      )}
-    </nav>
-  </div>
-</div>
+<nav class="top-bar">
+  {Object.keys(languages).map(langCode =>
+    <a href={setUrlLocale(Astro.url, langCode)}>
+      <Icon
+        name=`circle-flags:lang-${langCode}`
+        size="4rem"
+        style="margin: 1rem;"
+      />
+    </a>
+  )}
+</nav>
 
 <style lang="scss">
 @use "../styles/defs";
 
 .top-bar {
   width: 100%;
-  height: defs.$top-bar-height;
-  position: sticky;
-  top: 0;
-
-  background-color: defs.$background;
-  box-shadow: defs.$shadow;
-}
-
-.top-bar-inner {
   max-width: defs.$max-width;
   height: defs.$top-bar-height;
   margin: auto;
 
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
 }
 
-.page-nav, .languages {
+
+.languages {
   display: flex;
   flex-direction: row;
   align-items: center;
