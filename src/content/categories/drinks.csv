@@ -1,10 +1,8 @@
-"slug","position","priceCategories"
-"hot",1,1
-"soda",2,1
-"boba",3,2
-"red_wine",4,2
-"white_wine",5,2
-"beer",6,1
-"cider",7,1
-"liquor",8,1
-"cocktails",9,1
+﻿slug,position,name,description
+lask,1,Läsk,
+varmt,2,Varma drycker,
+boba,3,Bubbelte,
+vittVin,4,Vitt vin,
+rottVin,5,Rött vin,
+ol,6,Öl,
+alkohol,7,Andra alkoholdrycker,

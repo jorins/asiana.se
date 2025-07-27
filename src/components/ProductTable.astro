@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content'
+import { collections } from '../lib/content'
 
 export interface Props {
-  group: string,
+  group: 'food' | 'drinks',
 }
 
 import { Localisation, getLocaleFromUrl } from '../lib/i18n'
@@ -12,38 +12,61 @@ const l = new Localisation(lang)
 
 const { group } = Astro.props
 
-const productDefs = await getCollection(`${group}ProductDefinitions`)
-const localisation = await getCollection(`${lang}${group.charAt(0).toUpperCase()}${group.substring(1).toLowerCase()}`)
+const productDefs = await collections.products[group].getCollection()
+const categoryDefs = await collections.categories[group].getCollection()
+const productLocalisation = collections.l10n[lang].products[group]
+const categoryLocalisation = collections.l10n[lang].products[group]
 
-const productsByCategory = {}
+const localisationPromises: Promise<void>[] = []
 
-productDefs
-  .map(product => product.data)
-  .sort((a, b) => a.position - b.position)
-  .forEach(product => {
-    productsByCategory[product.category] ??= []
-    productsByCategory[product.category].push(product)
+const sortedProducts = categoryDefs
+  .map(category => {
+    const res = category.data
+    localisationPromises.push(categoryLocalisation.getEntry(res.slug)
+      .then(async entryPromise => {
+        const entry = await entryPromise
+        if (entry === undefined)
+        res.name = (await entry)?.data.name ?? res.name
+        res.description = (await entry)?.data.description ?? res.description
+      })
+      .catch(err => {
+        console.warn(`No l10n entry for lang '${lang}', group '${group}'`)
+      })
+    )
+    return res
   })
+  .sort((a, b) => a.position - b.position)
+  .map(category => {
+    const products = productDefs
+      .map(product => product.data)
+      .filter(product => product.category === category.slug)
+      .sort((a, b) => a.position - b.position)
+    return {
+      category,
+      products,
+      }
+    }
+  )
+  .filter(({products}) => products.length > 0)
+
+await Promise.all(localisationPromises)
+
+sortedProducts.forEach(({category, products}) => {
+  console.log(category.slug)
+  products.forEach(product => console.log(product.slug))
+  console.log('======')
+})
 ---
 
-<Fragment>
-  {Object.entries(productsByCategory).map(([category, products]) => { 
-  // const x = getEntry()
-  return <>
-    <h3>{category}</h3>
-    <table>
-      <tr>
-        <th>product</th>
-        <th>prices</th>
-        <th></th>
-      </tr>
-      {products.map(product =>
-        <tr>
-          <td>{product.slug}</td>
-          <td>{product.price.join(' / ')}</td>
-        </tr>
-      )}
-    </table>
-  </>
-  })}
-</Fragment>
+<ol>
+  {sortedProducts.map(({category, products}) => <li>
+    <h3>{category.name}</h3>
+    <p>{category.description}</p>
+    <ol>
+      {products.map(product => <li>
+        <h4>{product.name}</h4>
+        <p>{product.description}</p>
+      </li>)}
+    </ol>
+  </li>)}
+</ol>

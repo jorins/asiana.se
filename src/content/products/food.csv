@@ -1,7 +1,14 @@
-"slug","category","position","price","spice"
-
-"hotpot_small","hotpot",1,300,0
-"hotpot_large","hotpot",2,500,0
-
-"orange_chicken","main",1,120,0
-"karaage","main",2,120,0
+﻿slug,category,position,price,spice,vego,allergens,name,description
+karaage,varm,1,139,0,,vetemjöl,Karaage,"Krispig friterad kyckling. Serveras med ris, stekt ris eller stekta nudlar samt chilimajonäs och sweet chilidipp"
+apelsinkyckling,varm,,139,0,,,Apelsinkyckling,"Friterade kycklingbitar i apelsinsås. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+wokadkyckling,varm,,139,1,,nötter;soja,Kycklingwok,"Wokad kyckling med cashewnötter och grönsaker. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+biffbambuskott,varm,,139,,,soja;ostronsås,Biffwok,"Wokad biff med bambuskott och purjolök. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+kycklingrodcurry,varm,,139,,,,Röd currykyckling,"Thairätt med röd curry. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+bibimbap,varm,,149,2,,soja;ostronsås,Bibimbap,Ris med nötkött och grönsaker. Serveras med vår heta vitkålssallad.
+padthai,varm,,139,,,jordnötter;ostronsås,Pad thai,"Stekta risnudlar med ägg, hackade jordnötter och lime"
+pokebowl,varm,,149,,,sojabönor;sesamfrön,Poké bowl,"Suschiris, kimchi, advokado edamamebönor, mango mm. Serveras med vår heta vitkålssallad. "
+wokadtofu,varm,,139,,,soja;ostronsås,Wokad toufu,"Med grönsaker i chilibönsås. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+sishuangryta,varm,,189,3,,soja;ostronsås,Traditionell Sishuangryta,"Stark gryta. Välj mellan biff, kyckling eller räkor. Med sötpotatsinudlar, sishuanpeppar och chili. Serveras med vår heta vitkålssallad."
+stektarakor,varm,,198,1,,,Stekta räkor,"Wokade stora räkor med färsk chili, vitlö och böngroddar i sishuansås. Serveras med vår heta vitkålssallad och ris, stekt ris eller stekta nudlar. "
+nudelsoppa,varm,,169,,,vete;soja;ägg,Nudelsoppa,Färska nudlar med långkokt nötlägg och kinesiskt sojamarinerat ägg
+sishuannudlar,varm,,129,1,,vete;soja;sojabönor,Sishuannudlar,"Färska nudlar med nötfärs, sishuanpeppar och grönsker. Serveras med vår heta vitkålssallad.  "

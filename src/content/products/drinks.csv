@@ -1,10 +1,8 @@
-"slug","category","position","price","spice"
-"cheap_wine","red_wine",1,"70;250",0
-"expensive_wine","red_wine",2,"100;350",0
-
-"apple_cider","cider",1,70,0
-"pear_cider","cider",2,70,0
-"dry_cider","cider",3,80,0
-
-"matcha_boba","boba",1,"40;60",0
-"lychee_boba","boba",2,"40;60",0
+﻿slug,category,position,price,spice,vego,allergens,name,description
+cola,lask,,30,,,,Coca Cola,
+fanta,lask,,30,,,,Fanta,
+sprite,lask,,30,,,,Sprite,
+colaZero,lask,,30,,,,Coca Cola Zero,
+spriteZero,lask,,30,,,,Sprite Zero,
+trocadero,lask,,30,,,,Trocadero,
+trocaderoZero,lask,,30,,,,Trocadero Zero,
