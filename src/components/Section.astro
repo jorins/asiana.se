@@ -1,0 +1,128 @@
+---
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+export type Props = {
+  id: string
+  alt?: boolean
+  classes?: string | string[]
+  containerColor?: string
+  image?: ImageMetadata,
+  imageAlt: string,
+}
+
+const {
+  id,
+  alt = false,
+  classes = [],
+  containerColor = 'red',
+  image,
+  imageAlt,
+  ...rest
+} = Astro.props
+---
+
+<div
+  id={id}
+  class:list={[
+    'container',
+    alt && 'alt',
+    `color-${containerColor}`
+  ]}
+  {...rest}
+>
+  <div class:list={[
+    'inner',
+  ]}>
+    <div class='section-head'>
+      {image && <Image
+        class="image"
+        src={image}
+        alt={imageAlt}
+      />}
+
+      <div class="content">
+        <slot name="head"/>
+      </div>
+    </div>
+    <div class="section-body">
+      <slot name="body"/>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+@use "sass:color";
+@use "../styles/defs";
+
+.container {
+  background-color: defs.$background-alt;
+}
+
+.inner {
+  width: 100%;
+  max-width: defs.$max-width;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 2rem 0;
+}
+
+.section-head {
+  width: 100%;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  @include defs.desktop {
+    flex-direction: row;
+  }
+}
+
+.section-body {
+  margin: auto;
+  width: 100%;
+}
+
+.container:nth-child(odd) {
+  background-color: defs.$background;
+
+  @include defs.desktop {
+    .section-head {
+      flex-direction: row;
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+.image-container {
+  display: block;
+}
+
+.image {
+  // border-radius: defs.$border-radius;
+  box-shadow: defs.$shadow;
+  width: 100%;
+  height: auto;
+
+  @include defs.desktop {
+    width: auto;
+    height: 100%;
+  }
+} 
+</style>

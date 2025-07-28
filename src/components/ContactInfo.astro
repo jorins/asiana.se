@@ -1,0 +1,33 @@
+---
+import DualColumnTable from './DualColumnTable.astro'
+
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+import company from '../content/company.json'
+
+const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
+---
+
+<DualColumnTable heading={l.get('ui', 'contact.head')}>
+  <tr>
+    <td>{l.get('ui', 'contact.mail')}</td>
+    <td>
+      <a href={`mailto:${company.mail}`}>{company.mail}</a>
+    </td>
+  </tr>
+</DualColumnTable>
+
+<style lang="scss">
+td {
+  vertical-align: top;
+  width: 50%;
+
+  &:first-child {
+    text-align: right;
+  }
+
+  &:last-child {
+    text-align: left;
+  }
+}
+</style>

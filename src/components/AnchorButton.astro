@@ -1,0 +1,111 @@
+---
+interface Props {
+  href?: string
+  target?: string
+  title?: string
+  classes?: string | string[]
+  disabled?: boolean
+  highlight?: boolean
+  grow?: 'grow' | 'shrink'
+  growMobile?: 'grow' | 'shrink'
+  growDesktop?: 'grow' | 'shrink'
+}
+
+const {
+  href = null,
+  classes = [],
+  disabled = false,
+  highlight = false,
+  grow = null,
+  growDesktop = null,
+  growMobile = null,
+  ...rest
+} = Astro.props
+
+const isExternal = href?.startsWith('https://')
+
+const growMobileClass =
+  typeof growMobile === 'string' ? `${growMobile}-mobile`
+  : typeof grow === 'string' ? `${grow}-mobile`
+  : null
+
+const growDesktopClass =
+  typeof growDesktop === 'string' ? `${growMobile}-desktop`
+  : typeof grow === 'string' ? `${grow}-desktop`
+  : null
+---
+
+<a
+  href={href}
+  class:list={[
+    classes,
+    highlight && 'highlight',
+    disabled && 'disabled',
+    growMobileClass,
+    growDesktopClass,
+    isExternal && 'external'
+  ]}
+  {...rest}
+>
+  <slot />
+</a>
+
+<style lang="scss">
+@use "sass:color";
+@use "../styles/defs";
+
+a {
+  display: block;
+  padding: 1rem;
+  flex-basis: 0;
+
+  border-radius: defs.$border-radius;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+
+  background-color: defs.$primary;
+  color: defs.$background;
+  box-shadow: defs.$shadow;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: defs.$highlight;
+  }
+
+  // &.external {
+  //   background-color: defs.$green;
+  //   color: defs.$highlight;
+  //
+  //   &:hover {
+  //     background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
+  //   }
+  // }
+
+  @include defs.mobile {
+    &.grow-mobile {
+      flex-grow: 1
+    }
+
+    &.shrink-mobile {
+      flex-shrink: 1
+    }
+  }
+
+  @include defs.desktop {
+    &.grow-desktop {
+      flex-grow: 1
+    }
+
+    &.shrink-desktop {
+      flex-shrink: 1
+    }
+  }
+}
+</style>

@@ -1,0 +1,46 @@
+---
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
+---
+
+<span id="countdown">
+  {l.get('ui', 'time.opening')}
+  <span id="days">...</span> {l.get('ui', 'time.days')},
+  <span id="hours">...</span> {l.get('ui', 'time.hours')},
+  <span id="minutes">...</span> {l.get('ui', 'time.minutes')},
+  <span id="seconds">...</span> {l.get('ui', 'time.seconds')}
+</span>
+
+<script is:inline lang="typescript">
+const countdownTo = new Date('2025-08-08 11:00 GMT+0200')
+
+const second = 1000
+const minute = second * 60
+const hour = minute * 60
+const day = hour * 24
+
+const daysSpan = document.querySelector('#countdown > #days')
+const hoursSpan = document.querySelector('#countdown > #hours')
+const minutesSpan = document.querySelector('#countdown > #minutes')
+const secondsSpan = document.querySelector('#countdown > #seconds')
+
+function updateCountdown() {
+  let timeLeft = Math.max(0, countdownTo - new Date())
+  const daysLeft = Math.floor(timeLeft / day)
+  timeLeft -= daysLeft * day
+  const hoursLeft = Math.floor(timeLeft / hour)
+  timeLeft -= hoursLeft * hour
+  const minutesLeft = Math.floor(timeLeft / minute)
+  timeLeft -= minutesLeft * minute
+  const secondsLeft = Math.floor(timeLeft / second)
+
+  daysSpan.innerText = daysLeft
+  hoursSpan.innerText = hoursLeft
+  minutesSpan.innerText = minutesLeft
+  secondsSpan.innerText = secondsLeft
+}
+
+window.setInterval(updateCountdown, 1000)
+updateCountdown()
+</script>

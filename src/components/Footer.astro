@@ -1,0 +1,62 @@
+---
+import * as company from '../content/company.json'
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+const locale = getLocaleFromUrl(Astro.url)
+const l = new Localisation(locale)
+
+---
+
+<footer>
+  <p class="copyright">&copy; {company.name} {new Date().getFullYear()}</p>
+  <div class="content">
+    <div class="address">
+      <h1>{l.get('ui', 'contact.address')}</h1>
+      {company.address.map(line => 
+        <>{line}<br /></>
+      )}
+    </div>
+    <div class="mail">
+      <h1>{l.get('ui', 'contact.mail')}</h1>
+      <a href=`mailto:${company.mail}`>{company.mail}</a>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+@use '../styles/defs';
+
+footer {
+  padding: 4rem 4rem 10rem 4rem;
+  background-color: defs.$background;
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  padding: 2rem;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: flex-start;
+  justify-content: center;
+
+  > div {
+    min-width: 20rem;
+  }
+}
+
+h1 {
+  font-size: 1em;
+}
+</style>

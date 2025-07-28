@@ -1,0 +1,38 @@
+---
+export interface Props {
+  heading: string
+}
+
+const { heading } = Astro.props
+---
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2">{heading}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <slot />
+  </tbody>
+</table>
+
+<style lang="scss">
+table {
+  width: 100%;
+  border-spacing: 2rem 1rem;
+}
+
+td {
+  vertical-align: top;
+  width: 50%;
+
+  &:first-child {
+    text-align: right;
+  }
+
+  &:last-child {
+    text-align: left;
+  }
+}
+</style>
