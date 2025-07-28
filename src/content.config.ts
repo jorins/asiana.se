@@ -66,6 +66,10 @@ const l10nEntrySchema = z.object({
   description: z.nullable(z.string()),
 })
 
+function hasSlug(input: any): boolean {
+  return input.slug !== undefined && input.slug !== ''
+}
+
 /**
  * Parse product definitions from csv text.
  */
@@ -73,8 +77,7 @@ function parseProductDefinitions(text: string): ProductDefinition[] {
   const input: RawProductDefinition[] = parseCsv(text.trim(), {
     columns: true,
     skipEmptyLines: true
-  })
-
+  }).filter(hasSlug)
 
   const output: ProductDefinition[] = []
   for (const entry of input) {
@@ -84,9 +87,9 @@ function parseProductDefinitions(text: string): ProductDefinition[] {
       price: entry.price.split(';').map((priceString: string) => Number.parseInt(priceString) || null),
       spice: Number.parseInt(entry.spice) || 0,
       category: entry.category,
-      allergens: entry.allergens.split(';'),
+      allergens: entry.allergens.trim().split(';').filter(allergen => allergen.length > 0),
       name: entry.name,
-      description: entry.description,
+      description: entry.description || null,
       vego: entry.vego === '' ? 'none' : vegoSchema.parse(entry.vego)
     })
   }
@@ -101,7 +104,7 @@ function parseCategoryDefinitions(text: string): CategoryDefinition[] {
   const input: RawCategoryDefinition[] = parseCsv(text.trim(), {
     columns: true,
     skipEmptyLines: true,
-  })
+  }).filter(hasSlug)
 
   const output: CategoryDefinition[] = []
 
@@ -124,7 +127,7 @@ function parseL10nCsv(text: string): L10nEntry[] {
   const input: RawL10nEntry[] = parseCsv(text.trim(), {
     columns: true,
     skipEmptyLines: true
-  })
+  }).filter(hasSlug)
   return input
 }
 

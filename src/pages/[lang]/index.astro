@@ -25,6 +25,7 @@ const locale = getLocaleFromUrl(Astro.url)
 const l = new Localisation(locale)
 const hero = await getAndRenderMarkdown(Astro.url, 'index/hero')
 const food = await getAndRenderMarkdown(Astro.url, 'index/food')
+const foodList = await getAndRenderMarkdown(Astro.url, 'index/food-list')
 const drinks = await getAndRenderMarkdown(Astro.url, 'index/drinks')
 const drinksList = await getAndRenderMarkdown(Astro.url, 'index/drinks-list')
 const location = await getAndRenderMarkdown(Astro.url, 'index/location')
@@ -42,7 +43,7 @@ const heroImageSrc = `url("${heroImage.src}")`
       <Countdown />
       <hero.Content />
       <ButtonCollection >
-        <AnchorButton href={company.orderLink} grow='grow' classes='highlight'>{l.get('ui', 'nav.order')}</AnchorButton>
+        <AnchorButton grow='grow' classes='highlight' disabled title="Du kan beställa när vi öppnar!">{l.get('ui', 'nav.order')}</AnchorButton>
         <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
       </ButtonCollection>
       <OpeningHours />
@@ -60,6 +61,7 @@ const heroImageSrc = `url("${heroImage.src}")`
     </Fragment>
 
     <Fragment slot="body">
+      <foodList.Content />
       <ProductTable group='food' />
     </Fragment>
   </Section>
@@ -157,8 +159,7 @@ const heroImageSrc = `url("${heroImage.src}")`
 }
 
 .logo {
-  max-height: 20rem;
-  height: 100%;
+  max-width: 90vw;
   margin: 2rem;
 }
 

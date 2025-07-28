@@ -1,22 +1,25 @@
 ---
 interface Props {
-  href: string
+  href?: string
+  title?: string
   classes?: string | string[]
+  disabled?: boolean
   grow?: 'grow' | 'shrink'
   growMobile?: 'grow' | 'shrink'
   growDesktop?: 'grow' | 'shrink'
 }
 
 const {
-  href,
+  href = null,
   classes = [],
+  disabled = false,
   grow = null,
   growDesktop = null,
   growMobile = null,
   ...rest
 } = Astro.props
 
-const isExternal = href.startsWith('https://')
+const isExternal = href?.startsWith('https://')
 
 const growMobileClass =
   typeof growMobile === 'string' ? `${growMobile}-mobile`
@@ -33,6 +36,7 @@ const growDesktopClass =
   href={href}
   class:list={[
     classes,
+    disabled && 'disabled',
     growMobileClass,
     growDesktopClass,
     isExternal && 'external'
@@ -62,6 +66,10 @@ a {
   background-color: defs.$primary;
   color: defs.$background;
   box-shadow: defs.$shadow;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
 
   &:hover {
     background-color: defs.$highlight;

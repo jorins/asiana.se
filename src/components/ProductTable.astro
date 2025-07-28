@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components'
+
 import { collections } from '../lib/content'
 
 export interface Props {
@@ -15,30 +17,56 @@ const { group } = Astro.props
 const productDefs = await collections.products[group].getCollection()
 const categoryDefs = await collections.categories[group].getCollection()
 const productLocalisation = collections.l10n[lang].products[group]
-const categoryLocalisation = collections.l10n[lang].products[group]
+const categoryLocalisation = collections.l10n[lang].categories[group]
 
+const spiceStrings = [
+  null,
+  l.get('ui', 'product.spice1'),
+  l.get('ui', 'product.spice2'),
+  l.get('ui', 'product.spice3'),
+]
+
+// Astro doesn't like it when we call new Array() within the template so we
+// have to use this *beautiful* hack.
+const spiceArrays = [
+  [],
+  [1],
+  [1, 2],
+  [1, 2, 3],
+]
+
+// Localisation is retrieved via the asynchronous getEntry function. This
+// doens't play nicely with array function chaining, so we collect promises to
+// apply localisations here and then await them all before rendering.
 const localisationPromises: Promise<void>[] = []
 
 const sortedProducts = categoryDefs
+  .map(category => category.data)
   .map(category => {
-    const res = category.data
-    localisationPromises.push(categoryLocalisation.getEntry(res.slug)
+    localisationPromises.push(categoryLocalisation.getEntry(category.slug)
       .then(async entryPromise => {
-        const entry = await entryPromise
-        if (entry === undefined)
-        res.name = (await entry)?.data.name ?? res.name
-        res.description = (await entry)?.data.description ?? res.description
-      })
-      .catch(err => {
-        console.warn(`No l10n entry for lang '${lang}', group '${group}'`)
+        const entry = (await entryPromise)?.data
+        category.name = entry?.name ?? category.name
+        category.description = entry?.description ?? category.description
       })
     )
-    return res
+    return category
   })
   .sort((a, b) => a.position - b.position)
   .map(category => {
     const products = productDefs
       .map(product => product.data)
+      .map(product => {
+        localisationPromises.push(
+          productLocalisation.getEntry(product.slug)
+            .then(async entryPromise => {
+              const entry = (await entryPromise)?.data
+              product.name = entry?.name ?? product.name
+              product.description = entry?.description ?? product.description
+            })
+        )
+        return product
+      })
       .filter(product => product.category === category.slug)
       .sort((a, b) => a.position - b.position)
     return {
@@ -51,22 +79,120 @@ const sortedProducts = categoryDefs
 
 await Promise.all(localisationPromises)
 
-sortedProducts.forEach(({category, products}) => {
-  console.log(category.slug)
-  products.forEach(product => console.log(product.slug))
-  console.log('======')
-})
 ---
 
-<ol>
-  {sortedProducts.map(({category, products}) => <li>
-    <h3>{category.name}</h3>
-    <p>{category.description}</p>
-    <ol>
-      {products.map(product => <li>
-        <h4>{product.name}</h4>
-        <p>{product.description}</p>
+<ol class="category-list">
+  {sortedProducts.map(({category, products}) => <li class="category-entry">
+    <h2 class="category-name">{category.name}</h3>
+    {category.description && <p class="category-description">{category.description}</p>}
+    <ol class="product-list">
+      {products.map(product => <li class="product-entry">
+        <div class="product-contents">
+          <h4 class="product-name">{product.name}</h4>
+          <span class="product-price">{product.price.map(price => `${price}:-`).join(' / ')}</span>
+          {product.description !== null && <p class="product-description">{product.description}</p>}
+          {product.allergens.length > 0 && <p class="product-allergens">
+            <span class="product-allergens-header">{l.get('ui', 'product.allergens')}:</span> {product.allergens.join(', ')}
+          </p>}
+        </div>
+
+        <div class="product-aside">
+          {product.spice !== 0 && <div class="product-spice-level" title={spiceStrings[product.spice]}>
+            {spiceArrays[product.spice].map(_ => 
+              <Icon name='fxemoji:chilipepper' size="2rem"/>
+            )}
+          </div>}
+        </div>
+
       </li>)}
     </ol>
   </li>)}
 </ol>
+
+<style lang="scss">
+@use 'sass:color';
+@use '../styles/defs';
+
+.category-list, .product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-list {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-entry {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 2em 1em;
+
+  @include defs.mobile {
+    width: 100%;
+    &:nth-child(even) {
+      background-color: color.change(defs.$background-alt, $alpha: 0.2);
+    }
+
+    &:nth-child(odd) {
+      background-color: color.change(defs.$background, $alpha: 0.2);
+    }
+  }
+
+  @include defs.desktop {
+    min-width: 50%;
+    max-width: 50%;
+    flex-grow: 1;
+
+    &:nth-child(4n-3), &:nth-child(4n) {
+      background-color: color.change(defs.$background-alt, $alpha: 0.2);
+    }
+
+    &:nth-child(4n-2), &:nth-child(4n-1) {
+      background-color: color.change(defs.$background, $alpha: 0.2);
+    }
+  }
+}
+
+.product-contents {
+  flex-grow: 1;
+}
+
+.product-aside {
+  min-width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+
+  svg {
+    display: block;
+  }
+}
+
+.product-name, .product-price {
+  display: inline;
+}
+
+.product-name {
+  margin-right: 0.5em;
+}
+
+.product-allergens {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.product-allergens-header {
+  font-weight: bold;
+}
+
+.product-spice-level {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+</style>

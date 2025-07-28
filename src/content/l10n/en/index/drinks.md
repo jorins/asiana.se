@@ -1,3 +1,3 @@
 # Drinks
 
-We serve boba tea, soft drinks, and alcohol.
+You'll always find something to quench your thirst here!

@@ -1,11 +1,9 @@
 {
-  "nav.index": "Start",
-  "nav.food": "Mat",
-  "nav.drinks": "Dryck",
-
   "nav.order": "Beställ",
   "nav.locate": "Hitta hit",
   "nav.showOnMaps": "Visa på Google Maps",
+  "lang.sv": "Visa sidan på svenska",
+  "lang.en": "Visa sidan på engelska",
 
   "openingHours.head": "Öppettider",
   "openingHours.monToFri": "Måndag till fredag",
@@ -31,10 +29,8 @@
   "time.minutes": "minuter",
   "time.seconds": "sekunder",
 
-  "alcohol.product": "Dryck",
-  "alcohol.priceGlass": "Glas",
-  "alcohol.priceBottle": "Flaska",
-  "alcohol.red_wine": "Rött vin",
-  "alcohol.white_wine": "Vitt vin",
-  "alcohol.cider": "Cider"
+  "product.allergens": "Allergener",
+  "product.spice1": "Den här rätten är stark.",
+  "product.spice2": "Den här rätten är mycket stark.",
+  "product.spice3": "Den här rätten är extremt stark."
 }

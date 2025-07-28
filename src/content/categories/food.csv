@@ -1,5 +1,5 @@
-﻿slug,position,name,description
-sides,1,Tillbehör,
-varm,2,Varmrätter,
-sushi,3,Sushi,
-hotpot,4,Hotpot,En gemensam kulinarisk tradition från Kina! För att vi ska hinna förbereda maten måste hotpot bokas minst en dag innan servering.
+"slug","position","name","description"
+"sides",1,"Sides",
+"varm",2,"Varmrätter",
+"sushi",3,"Sushi",
+"hotpot",4,"Hotpot","En gemensam kulinarisk tradition från Kina! För att vi ska hinna förbereda maten måste hotpot bokas minst en dag innan servering."

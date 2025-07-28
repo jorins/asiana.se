@@ -1,8 +1,8 @@
-﻿slug,position,name,description
-lask,1,Läsk,
-varmt,2,Varma drycker,
-boba,3,Bubbelte,
-vittVin,4,Vitt vin,
-rottVin,5,Rött vin,
-ol,6,Öl,
-alkohol,7,Andra alkoholdrycker,
+"slug","position","name","description"
+"lask",1,"Dryck","33cl-burkar."
+"varmt",2,"Varma drycker",
+"boba",3,"Bubbelte",
+"vittVin",4,"Vitt vin",
+"rottVin",5,"Rött vin",
+"ol",6,"Öl",
+"alkohol",7,"Andra alkoholdrycker",

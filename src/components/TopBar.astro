@@ -1,13 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import { setUrlLocale, languages } from '../lib/i18n'
+import { Localisation, getLocaleFromUrl, setUrlLocale, languages } from '../lib/i18n'
+
+const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
 ---
 
 <nav class="top-bar">
   {Object.keys(languages).map(langCode =>
     <a href={setUrlLocale(Astro.url, langCode)}>
       <Icon
+        title={l.get('ui', `lang.${langCode}`)}
         name=`circle-flags:lang-${langCode}`
         size="4rem"
         style="margin: 1rem;"
@@ -42,7 +46,6 @@ import { setUrlLocale, languages } from '../lib/i18n'
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 
 .page-nav {

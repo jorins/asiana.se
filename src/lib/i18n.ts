@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 
+import defaultAllergens from '../content/l10n/sv/allergens.json'
 import defaultAlt from '../content/l10n/sv/alt.json'
 import defaultUi from '../content/l10n/sv/ui.json'
 
@@ -37,6 +38,7 @@ export function setUrlLocale(url: URL, lang: string): string {
  * that yet to be set values can be used pre-emptively.
  */
 type LocalisationValues = {
+  allergens: typeof defaultAllergens & Record<string, string | undefined>
   alt: typeof defaultAlt & Record<string, string | undefined>
   ui: typeof defaultUi & Record<string, string | undefined>
 }
@@ -45,6 +47,7 @@ type LocalisationValues = {
  * The default localisation values, currently hard-coded to be Swedish.
  */
 const defaultLocalisationValues: LocalisationValues = {
+  allergens: defaultAllergens,
   alt: defaultAlt,
   ui: defaultUi,
 }
@@ -60,22 +63,36 @@ export class Localisation {
   values: LocalisationValues;
 
   constructor(lang: LanguageCode) {
+    const localisedAllergensText = readFileSync(`./src/content/l10n/${lang}/allergens.json`)
     const localisedAltText = readFileSync(`./src/content/l10n/${lang}/alt.json`)
     const localisedUiText = readFileSync(`./src/content/l10n/${lang}/ui.json`)
 
+    const localisedAllergens = JSON.parse(localisedAllergensText.toString())
     const localisedAlt = JSON.parse(localisedAltText.toString())
     const localisedUi = JSON.parse(localisedUiText.toString())
 
     this.lang = lang
     this.values = {
+      allergens: localisedAllergens,
       alt: localisedAlt,
       ui: localisedUi,
     }
   }
 
   get(cat: keyof typeof this.values, key: string) {
-    const def = defaultLocalisationValues[cat][key] ?? null;
-    const found = this.values[cat][key] ?? null;
+    const defaultCat = defaultLocalisationValues[cat]
+    const l10nCat = this.values[cat]
+
+    const def = defaultCat?.[key] ?? null;
+    const found = l10nCat?.[key] ?? null;
+
+    if (defaultCat === undefined) {
+      console.error(`Missing localisation category '${cat}' in defaults.`)
+    }
+
+    if (l10nCat === undefined) {
+      console.error(`Missing localisation category '${cat}' in localisation '${this.lang}'.`)
+    }
 
     if (found === null) {
       console.warn(`Missing localisation value in localisation '${this.lang}', category '${cat}', key '${key}'`)
@@ -85,6 +102,6 @@ export class Localisation {
       console.error(`Missing localisation default in '${cat}', key '${key}'`)
     }
 
-    return found ?? def ?? `{${key}}`
+    return found ?? def ?? `[${cat}:${key}]`
   }
 }
