@@ -10,8 +10,17 @@ import { collections as rawCollections } from '../content.config'
 class Collection<Key extends keyof typeof rawCollections> {
   key: Key
 
-  constructor(key: Key) {
+  /**
+   * If mock is set, getEntry will always return undefined. This is used for
+   * default localisations, where we want the data model to exist but don't
+   * want to run getEntry. The actual default localisation text is supposed to
+   * be co-located with the data for such collections.
+   */
+  mock: boolean
+
+  constructor(key: Key, mock?: boolean) {
     this.key = key
+    this.mock = mock ?? false
   }
 
   async getCollection() {
@@ -19,6 +28,9 @@ class Collection<Key extends keyof typeof rawCollections> {
   }
 
   async getEntry(ident: string) {
+    if (this.mock) {
+      return undefined
+    }
     return await getEntry(this.key, ident)
   }
 }
@@ -27,12 +39,12 @@ const l10nCollections = {
   sv: {
     md: new Collection('svMd'), 
     products: {
-      drinks: new Collection('svDrinks'),
-      food: new Collection('svFood'),
+      drinks: new Collection('svDrinks', true),
+      food: new Collection('svFood', true),
     },
     categories: {
-      drinks: new Collection('svDrinksCategories'),
-      food: new Collection('svFoodCategories'),
+      drinks: new Collection('svDrinksCategories', true),
+      food: new Collection('svFoodCategories', true),
     },
   },
 

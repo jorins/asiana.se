@@ -1,1 +1,19 @@
-{}
+{
+  "fisk": "fish",
+  "gluten": "gluten",
+  "jordnötter": "peanuts",
+  "lax": "salmon",
+  "lök": "onion",
+  "mjölk": "milk",
+  "nötter": "nuts",
+  "ostronsås": "oyster sauce",
+  "räkor": "shrimp",
+  "sesamfrön": "sesame seeds",
+  "sesamolja": "sesame oil",
+  "soja": "soy",
+  "sojaböna": "soy bean",
+  "sojabönor": "soy beans",
+  "vete": "wheat",
+  "vetemjöl": "wheat flour",
+  "ägg": "eggs"
+}

@@ -1,9 +1,11 @@
 ---
 interface Props {
   href?: string
+  target?: string
   title?: string
   classes?: string | string[]
   disabled?: boolean
+  highlight?: boolean
   grow?: 'grow' | 'shrink'
   growMobile?: 'grow' | 'shrink'
   growDesktop?: 'grow' | 'shrink'
@@ -13,6 +15,7 @@ const {
   href = null,
   classes = [],
   disabled = false,
+  highlight = false,
   grow = null,
   growDesktop = null,
   growMobile = null,
@@ -36,6 +39,7 @@ const growDesktopClass =
   href={href}
   class:list={[
     classes,
+    highlight && 'highlight',
     disabled && 'disabled',
     growMobileClass,
     growDesktopClass,

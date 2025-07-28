@@ -1,3 +1,6 @@
 {
-  "location": "The location of the restaurant on a map."
+  "map": "The location of the restaurant on a map.",
+  "food": "A steam cooked dumpling being picked up with chopsticks.",
+  "drinks": "A glass of buble tea with a straw."
+
 }

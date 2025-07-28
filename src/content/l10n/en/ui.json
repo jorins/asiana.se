@@ -1,10 +1,39 @@
 {
   "nav.order": "Order",
+  "nav.orderTooltip": "Order via Qopla",
   "nav.locate": "Find us",
   "nav.showOnMaps": "Show on Google Maps",
+  "nav.closed": "We cannot accept orders yet. Please come back later!",
+
+  "lang.sv": "Show page in Swedish",
+  "lang.en": "Show page in English",
 
   "openingHours.head": "Opening hours",
   "openingHours.monToFri": "Monday to Friday",
   "openingHours.sat": "Saturday",
-  "openingHours.sun": "Sunday"
+  "openingHours.sun": "Sunday",
+
+  "contact.head": "Contact",
+  "contact.address": "Address",
+  "contact.telephone": "Telephone",
+  "contact.mail": "Mail",
+
+  "time.monday": "Monday",
+  "time.tuesday": "Tuesday",
+  "time.wednesday": "Wednesday",
+  "time.thursday": "Thursday",
+  "time.friday": "Friday",
+  "time.saturday": "Saturday",
+  "time.sunday": "Sunday",
+
+  "time.opening": "Opens in",
+  "time.days": "days",
+  "time.hours": "hours",
+  "time.minutes": "minutes",
+  "time.seconds": "seconds",
+
+  "product.allergens": "Allergens",
+  "product.spice1": "This dish is hot.",
+  "product.spice2": "This dish is very hot.",
+  "product.spice3": "This dish is extremely hot."
 }

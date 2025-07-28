@@ -1,1 +1,1 @@
-## Drinks list
+## Beverage list

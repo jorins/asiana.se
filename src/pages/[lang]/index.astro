@@ -43,7 +43,15 @@ const heroImageSrc = `url("${heroImage.src}")`
       <Countdown />
       <hero.Content />
       <ButtonCollection >
-        <AnchorButton grow='grow' classes='highlight' disabled title="Du kan beställa när vi öppnar!">{l.get('ui', 'nav.order')}</AnchorButton>
+        <!-- <AnchorButton -->
+        <!--   href={company.orderLink} -->
+        <!--   target="_blank" -->
+        <!--   title={l.get('ui', 'nav.orderTooltip')} -->
+        <!--   highlight -->
+        <!--   grow='grow' -->
+        <!-- > -->
+        <!--   {l.get('ui', 'nav.order')} -->
+        <!-- </AnchorButton> -->
         <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
       </ButtonCollection>
       <OpeningHours />
@@ -91,7 +99,7 @@ const heroImageSrc = `url("${heroImage.src}")`
     <Fragment slot="head">
       <location.Content />
       <ButtonCollection>
-        <AnchorButton href={company.mapLink}>{l.get('ui', 'nav.showOnMaps')}</AnchorButton>
+        <AnchorButton href={company.mapLink} target="_blank">{l.get('ui', 'nav.showOnMaps')}</AnchorButton>
       </ButtonCollection>
     </Fragment>
   </Section>
