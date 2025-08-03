@@ -8,7 +8,7 @@ export type Props = {
   classes?: string | string[]
   containerColor?: string
   image?: ImageMetadata,
-  imageAlt: string,
+  imageAlt?: string,
 }
 
 const {
@@ -17,7 +17,7 @@ const {
   classes = [],
   containerColor = 'red',
   image,
-  imageAlt,
+  imageAlt = null,
   ...rest
 } = Astro.props
 ---
@@ -98,7 +98,6 @@ const {
     }
   }
 }
-
 
 .section-head-content {
   flex-grow: 1;
