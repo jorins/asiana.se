@@ -93,14 +93,21 @@ const heroImageSrc = `url("${heroImage.src}")`
 
   <Section
     id="location"
-    image={mapImage}
-    imageAlt={l.get('alt', 'map')}
   >
     <Fragment slot="head">
       <location.Content />
-      <ButtonCollection>
-        <AnchorButton href={company.mapLink} target="_blank">{l.get('ui', 'nav.showOnMaps')}</AnchorButton>
-      </ButtonCollection>
+    </Fragment>
+    <Fragment slot="body">
+      <iframe
+        class="map"
+        src={company.mapEmbed}
+        width="1200"
+        height="600"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      ></iframe>
     </Fragment>
   </Section>
 </Layout>
@@ -180,5 +187,8 @@ const heroImageSrc = `url("${heroImage.src}")`
   }
 }
 
+.map {
+  max-width: 90vw;
+}
 
 </style>
