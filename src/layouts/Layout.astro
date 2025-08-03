@@ -1,9 +1,7 @@
 ---
 import '../styles/main.scss'
 
-import TopBar from '../components/TopBar.astro'
-import Footer from '../components/Footer.astro'
-import { Localisation, getLocaleFromUrl } from '../lib/i18n'
+import { getLocaleFromUrl } from '../lib/i18n'
 const lang = getLocaleFromUrl(Astro.url)
 
 ---
@@ -19,11 +17,7 @@ const lang = getLocaleFromUrl(Astro.url)
     <meta name="description" content="Asiana är en östasiatisk restaurang i norra Jordbro med sushi, thai, traditionellt kinesiskt och mer!" />
   </head>
   <body>
-    <TopBar />
-    <div id="content">
-      <slot />
-    </div>
-    <Footer />
+    <slot />
   </body>
 </html>
 

@@ -3,13 +3,15 @@ export { getStaticPaths } from '../../lib/util'
 
 import { Image } from 'astro:assets'
 
-import Layout from '../../layouts/Layout.astro';
+import AnchorButton from '../../components/AnchorButton.astro'
 import ButtonCollection from '../../components/ButtonCollection.astro'
 import Countdown from '../../components/Countdown.astro'
+import Footer from '../../components/Footer.astro'
+import Layout from '../../layouts/Layout.astro';
 import OpeningHours from '../../components/OpeningHours.astro'
-import AnchorButton from '../../components/AnchorButton.astro'
-import Section from '../../components/Section.astro'
 import ProductTable from '../../components/ProductTable.astro'
+import Section from '../../components/Section.astro'
+import TopBar from '../../components/TopBar.astro'
 
 import company from '../../content/company.json'
 import { getAndRenderMarkdown } from '../../lib/util'
@@ -30,78 +32,80 @@ const heroImageSrc = `url("${heroImage.src}")`
 ---
 
 <Layout>
-  <div class="hero-wrapper">
-    <div class="hero">
-      <Image
-        src={logo}
-        alt="Asiana"
-        class:list={["logo"]}
-      />
-      <Countdown />
-      <hero.Content />
-      <ButtonCollection >
-        <!-- <AnchorButton -->
-        <!--   href={company.orderLink} -->
-        <!--   target="_blank" -->
-        <!--   title={l.get('ui', 'nav.orderTooltip')} -->
-        <!--   highlight -->
-        <!--   grow='grow' -->
-        <!-- > -->
-        <!--   {l.get('ui', 'nav.order')} -->
-        <!-- </AnchorButton> -->
-        <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
-      </ButtonCollection>
-      <OpeningHours />
+  <div id="content">
+    <div class="hero-wrapper">
+      <div class="hero">
+        <TopBar />
+        <Image
+          src={logo}
+          alt="Asiana"
+          class:list={["logo"]}
+        />
+        <Countdown />
+        <hero.Content />
+        <ButtonCollection >
+          <!-- <AnchorButton -->
+          <!--   href={company.orderLink} -->
+          <!--   target="_blank" -->
+          <!--   title={l.get('ui', 'nav.orderTooltip')} -->
+          <!--   highlight -->
+          <!--   grow='grow' -->
+          <!-- > -->
+          <!--   {l.get('ui', 'nav.order')} -->
+          <!-- </AnchorButton> -->
+          <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
+        </ButtonCollection>
+        <OpeningHours />
       </div>
     </div>
+
+    <Section
+      id="food"
+      image={foodImage}
+      imageAlt={l.get('alt', 'food')}
+    >
+      <Fragment slot="head">
+        <food.Content />
+      </Fragment>
+
+      <Fragment slot="body">
+        <ProductTable group='food' />
+      </Fragment>
+    </Section>
+
+    <Section
+      id="drinks"
+      image={drinksImage}
+      imageAlt={l.get('alt', 'drinks')}
+    >
+      <Fragment slot="head">
+        <drinks.Content />
+      </Fragment>
+
+      <Fragment slot="body">
+        <ProductTable group='drinks' />
+      </Fragment>
+    </Section>
+
+    <Section id="location" >
+      <Fragment slot="head">
+        <location.Content />
+      </Fragment>
+      <Fragment slot="body">
+        <iframe
+          class="map"
+          src={company.mapEmbed}
+          width="1200"
+          height="600"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </Fragment>
+    </Section>
+
   </div>
-
-  <Section
-    id="food"
-    image={foodImage}
-    imageAlt={l.get('alt', 'food')}
-  >
-    <Fragment slot="head">
-      <food.Content />
-    </Fragment>
-
-    <Fragment slot="body">
-      <ProductTable group='food' />
-    </Fragment>
-  </Section>
-
-  <Section
-    id="drinks"
-    image={drinksImage}
-    imageAlt={l.get('alt', 'drinks')}
-  >
-    <Fragment slot="head">
-      <drinks.Content />
-    </Fragment>
-
-    <Fragment slot="body">
-      <ProductTable group='drinks' />
-    </Fragment>
-  </Section>
-
-  <Section
-    id="location"
-  >
-    <Fragment slot="head">
-      <location.Content />
-    </Fragment>
-    <Fragment slot="body">
-      <iframe
-        class="map"
-        src={company.mapEmbed}
-        width="1200"
-        height="600"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer"
-      ></iframe>
-    </Fragment>
-  </Section>
+  <Footer />
 </Layout>
 
 <style lang="scss" define:vars={{ heroImageSrc }}>

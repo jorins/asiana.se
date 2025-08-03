@@ -24,21 +24,22 @@ const l = new Localisation(lang)
 @use "../styles/defs";
 
 .top-bar {
-  width: 100%;
+  width: 100vw;
   max-width: defs.$max-width;
   height: defs.$top-bar-height;
-  margin: auto;
-
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
 
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
+
+  @include defs.desktop {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 
