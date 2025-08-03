@@ -4,29 +4,47 @@ const lang = getLocaleFromUrl(Astro.url)
 const l = new Localisation(lang)
 ---
 
-<span id="countdown">
-  {l.get('ui', 'time.opening')}
-  <span id="days">...</span> {l.get('ui', 'time.days')},
-  <span id="hours">...</span> {l.get('ui', 'time.hours')},
-  <span id="minutes">...</span> {l.get('ui', 'time.minutes')},
-  <span id="seconds">...</span> {l.get('ui', 'time.seconds')}
-</span>
+<p>
+  <span id="opened" style="display: none;">
+    {l.get('ui', 'nav.opened')}
+  </span>
+  <span id="countdown">
+    {l.get('ui', 'time.opening')}
+    <span id="days">...</span> {l.get('ui', 'time.days')},
+    <span id="hours">...</span> {l.get('ui', 'time.hours')},
+    <span id="minutes">...</span> {l.get('ui', 'time.minutes')},
+    <span id="seconds">...</span> {l.get('ui', 'time.seconds')}
+  </span>
+</p>
 
 <script is:inline lang="typescript">
-const countdownTo = new Date(1754643600000)
+const countdownTo = new Date(1754643600000) // Real date
+// const countdownTo = new Date(Date.now() + 5000) // For testing
 
 const second = 1000
 const minute = second * 60
 const hour = minute * 60
 const day = hour * 24
 
+const openedSpan = document.querySelector('#opened')
+const countdownSpan = document.querySelector('#countdown')
 const daysSpan = document.querySelector('#countdown > #days')
 const hoursSpan = document.querySelector('#countdown > #hours')
 const minutesSpan = document.querySelector('#countdown > #minutes')
 const secondsSpan = document.querySelector('#countdown > #seconds')
 
+let intervalId = null;
+
 function updateCountdown() {
   let timeLeft = Math.max(0, countdownTo - new Date())
+
+  if (timeLeft <= 0) {
+    openedSpan.style.display = null
+    countdownSpan.style.display = 'none'
+    console.log({o: openedSpan.style.display, c: countdownSpan.style.display})
+    clearInterval(intervalId)
+  }
+
   const daysLeft = Math.floor(timeLeft / day)
   timeLeft -= daysLeft * day
   const hoursLeft = Math.floor(timeLeft / hour)
@@ -41,6 +59,6 @@ function updateCountdown() {
   secondsSpan.innerText = secondsLeft
 }
 
-window.setInterval(updateCountdown, 1000)
+intervalId = window.setInterval(updateCountdown, 1000)
 updateCountdown()
 </script>
