@@ -15,7 +15,7 @@ const l = new Localisation(lang)
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{l.get('meta', 'title')}</title>
-    <meta name="description" content="Asiana är en östasiatisk restaurang i norra Jordbro med sushi, thai, traditionellt kinesiskt och mer!" />
+    <meta name="description" content={l.get('meta', 'description')}/>
   </head>
   <body>
     <slot />
