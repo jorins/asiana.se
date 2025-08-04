@@ -9,14 +9,12 @@ const l = new Localisation(lang)
 
 <nav class="top-bar">
   {Object.keys(languages).map(langCode =>
-    <a href={setUrlLocale(Astro.url, langCode)}>
-      <Icon
-        title={l.get('ui', `lang.${langCode}`)}
-        name=`circle-flags:lang-${langCode}`
-        size="4rem"
-        style="margin: 1rem;"
-      />
-    </a>
+  <a href={setUrlLocale(Astro.url, langCode)}><Icon
+    title={l.get('ui', `lang.${langCode}`)}
+    name=`circle-flags:lang-${langCode}`
+    size="4rem"
+    style="margin: 1rem;"
+  /></a>
   )}
 </nav>
 
@@ -24,8 +22,6 @@ const l = new Localisation(lang)
 @use "../styles/defs";
 
 .top-bar {
-  width: 100vw;
-  max-width: defs.$max-width;
   height: defs.$top-bar-height;
 
   display: flex;
@@ -33,15 +29,7 @@ const l = new Localisation(lang)
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
-
-  @include defs.desktop {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
-
 
 .languages {
   display: flex;

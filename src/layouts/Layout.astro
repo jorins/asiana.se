@@ -1,8 +1,9 @@
 ---
 import '../styles/main.scss'
 
-import { getLocaleFromUrl } from '../lib/i18n'
+import { Localisation, getLocaleFromUrl } from '../lib/i18n'
 const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
 
 ---
 
@@ -13,7 +14,7 @@ const lang = getLocaleFromUrl(Astro.url)
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Asiana - östasiatisk restaurang i Jordbro</title>
+    <title>{l.get('meta', 'title')}</title>
     <meta name="description" content="Asiana är en östasiatisk restaurang i norra Jordbro med sushi, thai, traditionellt kinesiskt och mer!" />
   </head>
   <body>
