@@ -27,7 +27,7 @@ const spiceStrings = [
 ]
 
 // Astro doesn't like it when we call new Array() within the template so we
-// have to use this *beautiful* hack.
+// have to use this *beautiful* hack to iterate a set amount of times.
 const spiceArrays = [
   [],
   [1],
@@ -88,7 +88,7 @@ await Promise.all(localisationPromises)
     <ol class="product-list">
       {products.map(product => <li class="product-entry">
         <div class="product-contents">
-          <h4 class="product-name">{product.name}</h4>
+          <h3 class="product-name">{product.name}</h3>
           <span class="product-price">{product.price.map(price => `${price}:-`).join(' / ')}</span>
           {product.description !== null && <p class="product-description">{product.description}</p>}
           {product.allergens.length > 0 && <p class="product-allergens">

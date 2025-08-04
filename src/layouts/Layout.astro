@@ -1,10 +1,9 @@
 ---
 import '../styles/main.scss'
 
-import TopBar from '../components/TopBar.astro'
-import Footer from '../components/Footer.astro'
 import { Localisation, getLocaleFromUrl } from '../lib/i18n'
 const lang = getLocaleFromUrl(Astro.url)
+const l = new Localisation(lang)
 
 ---
 
@@ -15,15 +14,11 @@ const lang = getLocaleFromUrl(Astro.url)
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Asiana - östasiatisk restaurang i Jordbro</title>
-    <meta name="description" content="Asiana är en östasiatisk restaurang i norra Jordbro med sushi, thai, traditionellt kinesiskt och mer!" />
+    <title>{l.get('meta', 'title')}</title>
+    <meta name="description" content={l.get('meta', 'description')}/>
   </head>
   <body>
-    <TopBar />
-    <div id="content">
-      <slot />
-    </div>
-    <Footer />
+    <slot />
   </body>
 </html>
 

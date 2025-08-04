@@ -3,13 +3,15 @@ export { getStaticPaths } from '../../lib/util'
 
 import { Image } from 'astro:assets'
 
-import Layout from '../../layouts/Layout.astro';
+import AnchorButton from '../../components/AnchorButton.astro'
 import ButtonCollection from '../../components/ButtonCollection.astro'
 import Countdown from '../../components/Countdown.astro'
+import Footer from '../../components/Footer.astro'
+import Layout from '../../layouts/Layout.astro';
 import OpeningHours from '../../components/OpeningHours.astro'
-import AnchorButton from '../../components/AnchorButton.astro'
-import Section from '../../components/Section.astro'
 import ProductTable from '../../components/ProductTable.astro'
+import Section from '../../components/Section.astro'
+import TopBar from '../../components/TopBar.astro'
 
 import company from '../../content/company.json'
 import { getAndRenderMarkdown } from '../../lib/util'
@@ -19,90 +21,93 @@ import logo from '../../assets/logo-white.svg'
 import heroImage from '../../assets/pexels-christel-heimdal-jensen-628776-resize.jpg'
 import foodImage from '../../assets/pexels-mdsnmdsnmdsn-3728295-crop.jpg'
 import drinksImage from '../../assets/pexels-rdne-6412836-crop.jpg'
-import mapImage from '../../assets/map.jpg'
 
 const locale = getLocaleFromUrl(Astro.url)
 const l = new Localisation(locale)
 const hero = await getAndRenderMarkdown(Astro.url, 'index/hero')
 const food = await getAndRenderMarkdown(Astro.url, 'index/food')
-const foodList = await getAndRenderMarkdown(Astro.url, 'index/food-list')
 const drinks = await getAndRenderMarkdown(Astro.url, 'index/drinks')
-const drinksList = await getAndRenderMarkdown(Astro.url, 'index/drinks-list')
 const location = await getAndRenderMarkdown(Astro.url, 'index/location')
 const heroImageSrc = `url("${heroImage.src}")`
 ---
 
 <Layout>
-  <div class="hero-wrapper">
-    <div class="hero">
-      <Image
-        src={logo}
-        alt="Asiana"
-        class:list={["logo"]}
-      />
-      <Countdown />
-      <hero.Content />
-      <ButtonCollection >
-        <!-- <AnchorButton -->
-        <!--   href={company.orderLink} -->
-        <!--   target="_blank" -->
-        <!--   title={l.get('ui', 'nav.orderTooltip')} -->
-        <!--   highlight -->
-        <!--   grow='grow' -->
-        <!-- > -->
-        <!--   {l.get('ui', 'nav.order')} -->
-        <!-- </AnchorButton> -->
-        <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
-      </ButtonCollection>
-      <OpeningHours />
+  <div id="content">
+    <div class="hero-wrapper">
+      <div class="hero">
+        <TopBar />
+        <div class="hero-content">
+          <Image
+            src={logo}
+            alt="Asiana"
+            class:list={["logo"]}
+          />
+          <Countdown />
+          <hero.Content />
+          <ButtonCollection >
+            <!-- <AnchorButton -->
+            <!--   href={company.orderLink} -->
+            <!--   target="_blank" -->
+            <!--   title={l.get('ui', 'nav.orderTooltip')} -->
+            <!--   highlight -->
+            <!--   grow='grow' -->
+            <!-- > -->
+            <!--   {l.get('ui', 'nav.order')} -->
+            <!-- </AnchorButton> -->
+            <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
+          </ButtonCollection>
+          <OpeningHours />
+        </div>
       </div>
     </div>
+
+    <Section
+      id="food"
+      image={foodImage}
+      imageAlt={l.get('alt', 'food')}
+    >
+      <Fragment slot="head">
+        <food.Content />
+      </Fragment>
+
+      <Fragment slot="body">
+        <ProductTable group='food' />
+      </Fragment>
+    </Section>
+
+    <Section
+      id="drinks"
+      image={drinksImage}
+      imageAlt={l.get('alt', 'drinks')}
+    >
+      <Fragment slot="head">
+        <drinks.Content />
+      </Fragment>
+
+      <Fragment slot="body">
+        <ProductTable group='drinks' />
+      </Fragment>
+    </Section>
+
+    <Section id="location" >
+      <Fragment slot="head">
+        <location.Content />
+      </Fragment>
+      <Fragment slot="body">
+        <iframe
+          class="map"
+          src={company.mapEmbed}
+          width="1200"
+          height="600"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </Fragment>
+    </Section>
+
   </div>
-
-  <Section
-    id="food"
-    image={foodImage}
-    imageAlt={l.get('alt', 'food')}
-  >
-    <Fragment slot="head">
-      <food.Content />
-    </Fragment>
-
-    <Fragment slot="body">
-      <foodList.Content />
-      <ProductTable group='food' />
-    </Fragment>
-  </Section>
-
-  <Section
-    id="drinks"
-    image={drinksImage}
-    imageAlt={l.get('alt', 'drinks')}
-  >
-    <Fragment slot="head">
-      <drinks.Content />
-    </Fragment>
-
-    <Fragment slot="body">
-      <drinksList.Content />
-      <ProductTable group='drinks' />
-    </Fragment>
-  </Section>
-
- 
-
-  <Section
-    id="location"
-    image={mapImage}
-    imageAlt={l.get('alt', 'map')}
-  >
-    <Fragment slot="head">
-      <location.Content />
-      <ButtonCollection>
-        <AnchorButton href={company.mapLink} target="_blank">{l.get('ui', 'nav.showOnMaps')}</AnchorButton>
-      </ButtonCollection>
-    </Fragment>
-  </Section>
+  <Footer />
 </Layout>
 
 <style lang="scss" define:vars={{ heroImageSrc }}>
@@ -131,10 +136,18 @@ const heroImageSrc = `url("${heroImage.src}")`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
 
   background-color: color.change(defs.$background, $alpha: defs.$transparent-alpha);
+}
+
+.hero-content {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .doubling-block {
@@ -180,5 +193,9 @@ const heroImageSrc = `url("${heroImage.src}")`
   }
 }
 
+.map {
+  max-width: 90vw;
+  border: none;
+}
 
 </style>
