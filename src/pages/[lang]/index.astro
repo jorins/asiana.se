@@ -45,15 +45,15 @@ const heroImageSrc = `url("${heroImage.src}")`
           <Countdown />
           <hero.Content />
           <ButtonCollection >
-            <!-- <AnchorButton -->
-            <!--   href={company.orderLink} -->
-            <!--   target="_blank" -->
-            <!--   title={l.get('ui', 'nav.orderTooltip')} -->
-            <!--   highlight -->
-            <!--   grow='grow' -->
-            <!-- > -->
-            <!--   {l.get('ui', 'nav.order')} -->
-            <!-- </AnchorButton> -->
+            <AnchorButton
+              href={company.orderLink}
+              target="_blank"
+              title={l.get('ui', 'nav.orderTooltip')}
+              highlight
+              grow='grow'
+            >
+              {l.get('ui', 'nav.order')}
+            </AnchorButton>
             <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
           </ButtonCollection>
           <OpeningHours />
