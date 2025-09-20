@@ -1,29 +1,29 @@
 "slug","category","position","price","spice","vego","allergens","name","description"
-"karaage","varm",4,159,,,"vete;ägg","Karaage","Krispig friterad kyckling. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad, chilimajonnäs och sweet chilidipp."
+"karaage","varm",4,159,,,"vet+G2:G37e;ägg","Karaage","Krispig friterad kyckling. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad, chilimajonnäs och sweet chilidipp."
 "apelsinkyckling","varm",1,139,,,,"Apelsinkyckling","Friterade kycklingbitar i apelsinsås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
 "kycklingwok","varm",5,149,1,,"nötter;soja","Kycklingwok","Wokad kyckling med cashewnötter och grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"biffbambuskott","varm",11,139,,,"soja;ostronsås","Biffwok","Wokad biff med bambuskott och purjolök. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
+"biffbambuskott","varm",9,139,,,"soja;ostronsås","Biffwok","Wokad biff med bambuskott och purjolök. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
 "rodcurry","varm",3,"139;149;169",,,,"Röd curry","Thairätt med röd curry och kokosmjölk. Välj mellan kyckling, biff och räkor. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"bibimbap","varm",8,149,2,,"soja;ostronsås;sojabönor;vetemjöl","Bibimbap","Koreansk rätt med ris, nötkött och grönsaker. Serveras med vår heta vitkålssallad."
+"bibimbap","varm",7,149,2,,"soja;ostronsås;sojabönor;vetemjöl","Bibimbap","Koreansk rätt med ris, nötkött och grönsaker. Serveras med vår heta vitkålssallad."
 "padthai","varm",2,"139;149;169",,,"jordnötter;ostronsås","Pad thai","Stekta risnudlar med ägg, hackade jordnötter och lime. Välj mellan kyckling, biff och räkor. Serveras med vår heta vitkålssallad. "
-"pokebowl","varm",9,149,,,"sojabönor;sesamfrön","Poké bowl","Sushiris, kimchi, avokado, edamamebönor, och mango. Serveras med vår heta vitkålssallad. "
-"wokadtouf","varm",13,139,,,"soja;ostronsås","Wokad tofu","Wokad tofu med grönsaker i chilibönsås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
+"pokebowl","varm",8,149,,,"sojabönor;sesamfrön","Poké bowl","Sushiris, kimchi, avokado, edamamebönor, och mango. Serveras med vår heta vitkålssallad. "
+"wokadtouf","varm",11,139,,,"soja;ostronsås","Wokad tofu","Wokad tofu med grönsaker i chilibönsås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
 "sichuangryta","varm",6,"149;159;179",2,,"soja;ostronsås","Sichuangryta","Stark, traditionell gryta från Sichuan med sötpotatisnudlar, sichuanpeppar och chili. Välj mellan kyckling, biff och räkor. Serveras med vår heta vitkålssallad och ris."
-"stektarakor","varm",12,198,1,,"räkor;soja","Stekta räkor","Wokade stora räkor med färsk chili, vitlök och böngroddar i sichuansås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"nudelsoppa","varm",7,169,,,"vete;soja;ägg","Nudelsoppa","Färska nudlar med långkokt nötlägg och kinesiskt sojamarinerat ägg. Serveras med vår heta vitkålssallad.  "
-"sichuannudlar","varm",10,129,1,,"vete;soja;sojabönor","Sichuannudlar","Färska nudlar med nötfärs, sichuanpeppar och grönsker. Serveras med vår heta vitkålssallad.  "
+"stektarakor","varm",10,198,1,,"räkor;soja","Stekta räkor","Wokade stora räkor med färsk chili, vitlök och böngroddar i sichuansås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
+"yakiniku","varm",12,149,,,"vete;soja;ägg","Yakiniku","Japansk rätt. Grillad biff med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
+"gongbaokyckling","varm",13,149,2,,"vete;soja;sojabönor","Gong Bao Kyckling","Het kycklingrätt från Sichuan med jordnötter. Sötsur smak och stark sås med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
 ,,,,,,,,
 ,,,,,,,,
-"hutun","sides",1,79,,,"vete;räkor;ägg;sesamfrön;soja","Hutung Tang","Soppa gjord på hönsbuljong med fem wontonknyten, sjögräs och miniräkor. "
-"varrullar","sides",2,39,,,"vetemjöl;mjölk;soja","Vegetariska vårrullar","Fyra friterade vårrullar. Serveras med chili- eller sojasås."
-"cheese","sides",3,39,,,"vetemjöl;mjölk;soja","Cheddar cheese","Fyra friterade ostnuggets med smak av jalapeños. Serveras med sweet chili- eller sojasås."
-"misosoppa","sides",4,19,,,"soja","Misosoppa","Soppa med sjögräs och vårlök."
+,,,,,,,,
+"varrullar","sides",1,39,,,"vetemjöl;mjölk;soja","Vegetariska vårrullar","Fyra friterade vårrullar. Serveras med chili- eller sojasås."
+"cheese","sides",2,39,,,"vetemjöl;mjölk;soja","Cheddar cheese","Fyra friterade ostnuggets med smak av jalapeños. Serveras med sweet chili- eller sojasås."
+"misosoppa","sides",3,19,,,"soja","Misosoppa","Soppa med sjögräs och vårlök."
 "sjogras","sides",5,39,,,"sesamfrön;sojaböna;sesamolja;gluten","Sjögrässallad",
 "ingefara","sides",6,39,,,,"Inlagd ingefära",
 "ris","sides",8,29,,,,"Ris",
 "stektris","sides",9,39,,,,"Stekt ris","Stekt ris med ärtor, morötter och majs."
 "stektanudlar","sides",10,39,,,,"Stekta nudlar","Stekta nudlar med morötter, kål och purjolök."
-"bonor","sides",4,39,,,"sojabönor","Edamamebönor","Ångkokta edamamebönor. Serveras med sojasås."
+"bonor","sides",4,39,,,"sojabönor"," bv","Ångkokta edamamebönor. Serveras med sojasås."
 "vitkalssallad","sides",7,39,1,,,"Vitkålssallad","Vår heta hemmagjorda vitkålssallad."
 ,,,,,,,,
 "sushiliten","sushi",1,119,,,"soja;lax;räkor;sesamfrön","Liten sushi","9 bitar. 3 californiarullar, 2 lax, 2 räkor, 1 avokado, 1 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
