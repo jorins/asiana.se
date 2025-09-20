@@ -1,4 +1,4 @@
-slug,name,description
+"slug","name","description"
 "cola","Coca-Cola",
 "colaz","Coca-Cola Zero",
 "fanta","Fanta Orange",
@@ -9,4 +9,7 @@ slug,name,description
 "trocaderoz","Trocadero Zero","A classic Swedish soda without sugar."
 "vattennatur","Loka Naturell","Sparkling water."
 "vattencitron","Loka Citron","Sparkling water with lemon flavour."
+"smakisparon","Smakis Päron","Pear flavoured soft drink."
+"smakisapelsin","Smakis Apelsin","Orange flavoured soft drink."
+"smakisjordgubb","Smakis Jordgubb","Strawberry flavoured soft drink."
 "alkofriol","Pripps Blå Alkoholfri","Alcohol free beer."
