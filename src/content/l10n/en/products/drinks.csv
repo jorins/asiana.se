@@ -1,15 +1,24 @@
-"slug","name","description"
-"cola","Coca-Cola",
-"colaz","Coca-Cola Zero",
-"fanta","Fanta Orange",
-"fantaz","Fanta Zero Orange",
-"sprite","Sprite",
-"spritez","Sprite Zero",
-"trocadero","Trocadero","A classic Swedish soda."
-"trocaderoz","Trocadero Zero","A classic Swedish soda without sugar."
-"vattennatur","Loka Naturell","Sparkling water."
-"vattencitron","Loka Citron","Sparkling water with lemon flavour."
-"smakisparon","Smakis Päron","Pear flavoured soft drink."
-"smakisapelsin","Smakis Apelsin","Orange flavoured soft drink."
-"smakisjordgubb","Smakis Jordgubb","Strawberry flavoured soft drink."
-"alkofriol","Pripps Blå Alkoholfri","Alcohol free beer."
+"slug","category","position","price","spice","vego","allergens","name","description"
+"cola","lask",,20,,,,"Coca-Cola",
+"colaz","lask",,20,,,,"Coca-Cola Zero",
+"fanta","lask",,20,,,,"Fanta Orange",
+"fantaz","lask",,20,,,,"Fanta Zero Orange",
+"sprite","lask",,20,,,,"Sprite",
+"spritez","lask",,20,,,,"Sprite Zero",
+"trocadero","lask",,20,,,,"Trocadero",
+"trocaderoz","lask",,20,,,,"Trocadero Zero",
+"vattennatur","lask",,20,,,,"Loka Naturell",
+"vattencitron","lask",,20,,,,"Loka Citron",
+"smakisparon","lask",,20,,,,"Smakis Päron",
+"smakisapelsin","lask",,20,,,,"Smakis Apelsin",
+"smakisjordgubb","lask",,20,,,,"Smakis Jordgubb",
+"alkofriol","lask",,20,,,,"Pripps Blå Alkoholfri ",
+"sanktanna","vittvin",,"69;290",,,,"Sankt Anna","Reisling från Tyskland. Halvtorr med mycket fruktsyra. Druvig, ungdomlig, mycket frisk smak med sötma, inslag av päron, gröna äpplen, mineral, honungsmelon, ananas och lime. 11,5 %"
+"leth","vittvin",,"69;290",,,,"Leth","Grüner Veltliner från Österrike. Torr med mycket fruktsyra. Fruktig smak med inslag av päron, honungsmelon, vitpeppar, örter och lime. Bra till vegetariskt eller till rätter av fisk eller kyckling."
+"bubbles","vittvin",,290,,,,"Bubbles is best enjoyed with friends","Spanskt mousserande torrt vin. Fruktig smak med inslag av gula äpplen, kex, mineral, päron och citrus med mycket fruktsyra som passar bra till maten men också kan avnjutas med något enkelt tilltugg, 8,5 %"
+"castello","rottvin",,"69;290",,,,"Castillero del Diablo","Cabernet Sauvingnon från Chile. Fruktig smak med inslag av fat, svarta vinbär, färska örter, mörka körsbär, skogshallon, choklad och vanilj. Passar bra till all mat, men också bra som sällskapsvin."
+"cesshi","rottvin",,"69;290",,,,"Cecchi","Toscana Sangiovese från Italien. Bärig smak med inslag av körsbär, salvia, jordgubbar och björnbär. Passar utmärkt till lättare rätter. 13 %"
+"tsingtao","ol",,80,,,,"Tsingtao","Öl från Kina. Maltig smak med inslag av ljust knäckebröd, honung och citrus. som sällskapsdryck, till vegetariskt eller till rätter av fisk eller ljust kött. Observera att flaskan rymmer 640 ml. 4,7 %"
+"singha","ol",,60,,,,"Singha","Ljus lager från Thailand. Brödig smak med inslag av honung, ljust knäckebröd och citrus. Bra till heta asiatiska rätter. 330 ml. 5%."
+"mariestad","ol",,65,,,,"Mariestad","Ljus lager från Sverige med maltig smak med inslag av ljust bröd, sirap och citrus. Passar bra till nästan all mat, eller sälskapsdryck. 500 ml. 5,3 %."
+"cider","alkohol",,60,,,,"Kiviks Ekologisk Äppelcider","Torr cider med fruktig smak med inslag av gröna äpplen, gråpäron, och citrus. Som sällskapsdryck, till rätter av kyckling eller till sallader. 330 ml. 4,5%"
