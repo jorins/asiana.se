@@ -3,8 +3,6 @@
   "nav.orderTooltip": "Beställ via Qopla",
   "nav.locate": "Hitta hit",
   "nav.showOnMaps": "Visa på Google Maps",
-  "nav.closed": "Vi kan inte ta emot beställningar ännu. Kom gärna tillbaka senare!",
-  "nav.opened": "Vi har öppnat!",
 
   "lang.sv": "Visa sidan på svenska",
   "lang.en": "Visa sidan på engelska",
@@ -27,13 +25,11 @@
   "time.saturday": "Lördag",
   "time.sunday": "Söndag",
 
-  "time.opening": "Öppnar om",
   "time.days": "dagar",
   "time.hours": "timmar",
   "time.minutes": "minuter",
   "time.seconds": "sekunder",
 
-  "product.allergens": "Allergener",
   "product.spice1": "Den här rätten är stark.",
   "product.spice2": "Den här rätten är mycket stark.",
   "product.spice3": "Den här rätten är extremt stark."

@@ -91,9 +91,6 @@ await Promise.all(localisationPromises)
           <h3 class="product-name">{product.name}</h3>
           <span class="product-price">{product.price.map(price => `${price}:-`).join(' / ')}</span>
           {product.description !== null && <p class="product-description">{product.description}</p>}
-          <!-- {product.allergens.length > 0 && <p class="product-allergens"> -->
-          <!--     <span class="product-allergens-header">{l.get('ui', 'product.allergens')}:</span> {product.allergens.map(allergen => l.get('allergens', allergen)).join(', ')} -->
-          <!-- </p>} -->
         </div>
 
         <div class="product-aside">
@@ -179,15 +176,6 @@ await Promise.all(localisationPromises)
 
 .product-name {
   margin-right: 0.5em;
-}
-
-.product-allergens {
-  font-size: 0.8em;
-  margin: 0;
-}
-
-.product-allergens-header {
-  font-weight: bold;
 }
 
 .product-spice-level {

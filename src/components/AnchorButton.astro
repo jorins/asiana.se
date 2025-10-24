@@ -38,6 +38,7 @@ const growDesktopClass =
 <a
   href={href}
   class:list={[
+    'anchor-button',
     classes,
     highlight && 'highlight',
     disabled && 'disabled',
@@ -54,7 +55,7 @@ const growDesktopClass =
 @use "sass:color";
 @use "../styles/defs";
 
-a {
+.anchor-button {
   display: block;
   padding: 1rem;
   flex-basis: 0;
@@ -71,22 +72,25 @@ a {
   color: defs.$background;
   box-shadow: defs.$shadow;
 
+  &:hover {
+    background-color: defs.$highlight;
+    color: defs.$background;
+  }
+
   &.disabled {
     cursor: not-allowed;
   }
 
-  &:hover {
-    background-color: defs.$highlight;
-  }
 
-  // &.external {
-  //   background-color: defs.$green;
-  //   color: defs.$highlight;
-  //
-  //   &:hover {
-  //     background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
-  //   }
-  // }
+  &.highlight {
+    color: defs.$highlight;
+    background-color: defs.$green;
+
+    &:hover {
+      color: unset;
+      background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
+    }
+  }
 
   @include defs.mobile {
     &.grow-mobile {

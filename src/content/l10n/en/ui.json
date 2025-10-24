@@ -3,8 +3,6 @@
   "nav.orderTooltip": "Order via Qopla",
   "nav.locate": "Find us",
   "nav.showOnMaps": "Show on Google Maps",
-  "nav.closed": "We cannot accept orders yet. Please come back later!",
-  "nav.opened": "We have opened!",
 
   "lang.sv": "Show page in Swedish",
   "lang.en": "Show page in English",
@@ -27,13 +25,11 @@
   "time.saturday": "Saturday",
   "time.sunday": "Sunday",
 
-  "time.opening": "Opens in",
   "time.days": "days",
   "time.hours": "hours",
   "time.minutes": "minutes",
   "time.seconds": "seconds",
 
-  "product.allergens": "Allergens",
   "product.spice1": "This dish is hot.",
   "product.spice2": "This dish is very hot.",
   "product.spice3": "This dish is extremely hot."
