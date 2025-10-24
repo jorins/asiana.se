@@ -22,8 +22,6 @@ type RawProductDefinitionKey =
   | 'position'
   | 'price'
   | 'spice'
-  | 'vego'
-  | 'allergens'
   | 'name'
   | 'description'
 
@@ -35,8 +33,6 @@ type RawL10nEntryKey =
   | 'description'
 
 type RawL10nEntry = Record<RawL10nEntryKey, string>
-
-const vegoSchema = z.enum(['none', 'vegetarian', 'vegan'])
 
 const categoryDefinitionSchema = z.object({
   slug: z.string(),
@@ -51,8 +47,6 @@ const productDefinitionSchema = z.object({
   position: z.number(),
   price: z.array(z.nullable(z.number())),
   spice: z.number(),
-  vego: vegoSchema,
-  allergens: z.array(z.string()),
   name: z.string(),
   description: z.nullable(z.string()),
 })
@@ -87,10 +81,8 @@ function parseProductDefinitions(text: string): ProductDefinition[] {
       price: entry.price.split(';').map((priceString: string) => Number.parseInt(priceString) || null),
       spice: Number.parseInt(entry.spice) || 0,
       category: entry.category,
-      allergens: entry.allergens.trim().split(';').filter(allergen => allergen.length > 0),
       name: entry.name,
       description: entry.description || null,
-      vego: entry.vego === '' ? 'none' : vegoSchema.parse(entry.vego)
     })
   }
 
