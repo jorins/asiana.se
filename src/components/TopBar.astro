@@ -9,12 +9,17 @@ const l = new Localisation(lang)
 
 <nav class="top-bar">
   {Object.keys(languages).map(langCode =>
-  <a href={setUrlLocale(Astro.url, langCode)}><Icon
+  <a
+    href={setUrlLocale(Astro.url, langCode)}
     title={l.get('ui', `lang.${langCode}`)}
-    name=`circle-flags:lang-${langCode}`
-    size="4rem"
-    style="margin: 1rem;"
-  /></a>
+    hreflang={langCode}
+  >
+    <Icon
+      name=`circle-flags:lang-${langCode}`
+      size="4rem"
+      style="margin: 1rem;"
+    />
+  </a>
   )}
 </nav>
 
