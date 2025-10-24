@@ -1,37 +1,37 @@
-"slug","category","position","price","spice","vego","allergens","name","description"
-"karaage","varm",4,159,,,"vet+G2:G37e;ägg","Karaage","Krispig friterad kyckling. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad, chilimajonnäs och sweet chilidipp."
-"apelsinkyckling","varm",1,139,,,,"Apelsinkyckling","Friterade kycklingbitar i apelsinsås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"kycklingwok","varm",5,149,1,,"nötter;soja","Kycklingwok","Wokad kyckling med cashewnötter och grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"biffbambuskott","varm",9,139,,,"soja;ostronsås","Biffwok","Wokad biff med bambuskott och purjolök. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"rodcurry","varm",3,"139;149;169",,,,"Röd curry","Thairätt med röd curry och kokosmjölk. Välj mellan kyckling, biff och räkor. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"bibimbap","varm",7,149,2,,"soja;ostronsås;sojabönor;vetemjöl","Bibimbap","Koreansk rätt med ris, nötkött och grönsaker. Serveras med vår heta vitkålssallad."
-"padthai","varm",2,"139;149;169",,,"jordnötter;ostronsås","Pad thai","Stekta risnudlar med ägg, hackade jordnötter och lime. Välj mellan kyckling, biff och räkor. Serveras med vår heta vitkålssallad. "
-"pokebowl","varm",8,149,,,"sojabönor;sesamfrön","Poké bowl","Sushiris, kimchi, avokado, edamamebönor, och mango. Serveras med vår heta vitkålssallad. "
-"wokadtouf","varm",11,139,,,"soja;ostronsås","Wokad tofu","Wokad tofu med grönsaker i chilibönsås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"sichuangryta","varm",6,"149;159;179",2,,"soja;ostronsås","Sichuangryta","Stark, traditionell gryta från Sichuan med sötpotatisnudlar, sichuanpeppar och chili. Välj mellan kyckling, biff och räkor. Serveras med vår heta vitkålssallad och ris."
-"stektarakor","varm",10,198,1,,"räkor;soja","Stekta räkor","Wokade stora räkor med färsk chili, vitlök och böngroddar i sichuansås. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"yakiniku","varm",12,149,,,"vete;soja;ägg","Yakiniku","Japansk rätt. Grillad biff med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-"gongbaokyckling","varm",13,149,2,,"vete;soja;sojabönor","Gong Bao Kyckling","Het kycklingrätt från Sichuan med jordnötter. Sötsur smak och stark sås med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår heta vitkålssallad."
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-"varrullar","sides",1,39,,,"vetemjöl;mjölk;soja","Vegetariska vårrullar","Fyra friterade vårrullar. Serveras med chili- eller sojasås."
-"cheese","sides",2,39,,,"vetemjöl;mjölk;soja","Cheddar cheese","Fyra friterade ostnuggets med smak av jalapeños. Serveras med sweet chili- eller sojasås."
-"misosoppa","sides",3,19,,,"soja","Misosoppa","Soppa med sjögräs och vårlök."
-"sjogras","sides",5,39,,,"sesamfrön;sojaböna;sesamolja;gluten","Sjögrässallad",
-"ingefara","sides",6,39,,,,"Inlagd ingefära",
-"ris","sides",8,29,,,,"Ris",
-"stektris","sides",9,39,,,,"Stekt ris","Stekt ris med ärtor, morötter och majs."
-"stektanudlar","sides",10,39,,,,"Stekta nudlar","Stekta nudlar med morötter, kål och purjolök."
-"bonor","sides",4,39,,,"sojabönor","Edamamebönor","Ångkokta edamamebönor. Serveras med sojasås."
-"vitkalssallad","sides",7,39,1,,,"Vitkålssallad","Vår heta hemmagjorda vitkålssallad."
-,,,,,,,,
-"sushiliten","sushi",1,119,,,"soja;lax;räkor;sesamfrön","Liten sushi","9 bitar. 3 californiarullar, 2 lax, 2 räkor, 1 avokado, 1 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushimellan","sushi",2,149,,,"soja;lax;räkor;sesamfrön","Mellan sushi","12 bitar. 5 californiarullar, 2 lax, 2 räkor, 2 avokad, 1 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushistor","sushi",3,179,,,"soja;lax;räkor;sesamfrön","Stor sushi","16 bitar. 7 californiarullar, 3 lax, 2 räkor, 2 avokado, 2 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushifamilj","sushi",4,329,,,"soja;lax;räkor;sesamfrön","Familjesushi","30 bitar. 9 californiarullar, 5 lax, 4 räkor, 4 avokado, 4 tofu och 4 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushilaxavokado","sushi",9,149,,,"soja;lax","Lax & avokado","10 bitar. 5 lax, 5 avokado. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushigrilladlax","sushi",8,169,,,"soja;lax;sesamfrön;lök","Grillad lax","9 bitar. Serveras med teriyakisås, sesamfrön, gräslök, rostad lök och strimlad chili. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"sushiveg","sushi",7,129,,,"soja","Vegetarisk sushi","10 bitar. 4 vegetariska, 3 tofu, 3 avokado. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"californiarullar","sushi",6,129,,,"soja;lax;fisk;sesamfrön","Californiarullar","10 bitar. Med avokado, lax, crabsticks och gurka. Serveras med majonnäs, soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
-"tempurarullar","sushi",5,159,,,"soja;räkor","Tempurarullar","10 friterade rullar som innehåller friterade räkor, gurka, avokado. Serveras med chiliMajonnäs samt soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
+"slug","category","position","price","spice","name","description"
+"karaage","varm",4,159,,"Karaage","Krispig friterad kyckling. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad, chilimajonnäs och sweet chilidipp."
+"apelsinkyckling","varm",1,139,,"Apelsinkyckling","Friterade kycklingbitar i apelsinsås. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"kycklingwok","varm",5,149,1,"Kycklingwok","Wokad kyckling med cashewnötter och grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"biffbambuskott","varm",9,139,,"Biffwok","Wokad biff med bambuskott och purjolök. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"rodcurry","varm",3,"139;149;169",,"Röd curry","Thairätt med röd curry och kokosmjölk. Välj mellan kyckling, biff och räkor. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"bibimbap","varm",7,149,2,"Bibimbap","Koreansk rätt med ris, nötkött och grönsaker. Serveras med vår egen rödkålssallad."
+"padthai","varm",2,"139;149;169",,"Pad thai","Stekta risnudlar med ägg, hackade jordnötter och lime. Välj mellan kyckling, biff och räkor. Serveras med vår egen rödkålssallad."
+"pokebowl","varm",8,149,,"Poké bowl","Sushiris, kimchi, avokado, edamamebönor, och mango. Serveras med vår egen rödkålssallad. "
+"wokadtouf","varm",11,139,,"Wokad tofu","Wokad tofu med grönsaker i chilibönsås. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"sichuangryta","varm",6,"149;159;179",2,"Sichuangryta","Stark, traditionell gryta från Sichuan med sötpotatisnudlar, sichuanpeppar och chili. Välj mellan kyckling, biff och räkor. Serveras med vår egen rödkålssallad och ris."
+"stektarakor","varm",10,198,1,"Stekta räkor","Wokade stora räkor med färsk chili, vitlök och böngroddar i sichuansås. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"yakiniku","varm",12,149,,"Yakiniku","Japansk rätt. Grillad biff med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+"gongbaokyckling","varm",13,149,2,"Gong Bao Kyckling","Het kycklingrätt från Sichuan med jordnötter. Sötsur smak och stark sås med grönsaker. Serveras med ris, stekt ris eller stekta nudlar samt vår egen rödkålssallad."
+,,,,,,
+,,,,,,
+,,,,,,
+"varrullar","sides",1,39,,"Vegetariska vårrullar","Fyra friterade vårrullar. Serveras med chilisås."
+"cheese","sides",2,39,,"Cheddar cheese","Fyra friterade ostnuggets med smak av jalapeños. Serveras med chilimajonäs."
+"misosoppa","sides",3,19,,"Misosoppa","Soppa med sjögräs och vårlök."
+"sjogras","sides",5,39,,"Sjögrässallad",
+"ingefara","sides",6,39,,"Inlagd ingefära",
+"ris","sides",8,29,,"Ris",
+"stektris","sides",9,39,,"Stekt ris","Stekt ris med ärtor, morötter och majs. Stekt med lite köttfärs, oystersås och soja."
+"stektanudlar","sides",10,39,,"Stekta nudlar","Stekta nudlar med morötter och purjolök. Stekt i oystersås och soja."
+"bonor","sides",4,39,,"Edamamebönor","Ångkokta edamamebönor. Serveras med sojasås."
+"rodkalssallad","sides",7,39,,"Rödkålssallad","Vår egen rödkålssallad med soja, inlagd ingefära och sesamfrön."
+,,,,,,
+"sushiliten","sushi",1,119,,"Liten sushi","9 bitar. 3 californiarullar, 2 lax, 2 räkor, 1 avokado, 1 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"sushimellan","sushi",2,149,,"Mellan sushi","12 bitar. 5 californiarullar, 2 lax, 2 räkor, 2 avokad, 1 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"sushistor","sushi",3,179,,"Stor sushi","16 bitar. 7 californiarullar, 3 lax, 2 räkor, 2 avokado, 2 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"sushifamilj","sushi",4,329,,"Familjesushi","30 bitar. 9 californiarullar, 5 lax, 4 räkor, 4 avokado, 4 tofu och 4 grillad lax. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"sushilaxavokado","sushi",9,149,,"Lax & avokado","10 bitar. 5 lax, 5 avokado. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"sushigrilladlax","sushi",8,169,,"Grillad lax","9 bitar. Serveras med teriyakisås, sesamfrön, gräslök, rostad lök och strimlad chili. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa."
+"sushiveg","sushi",7,129,,"Vegetarisk sushi","10 bitar. 4 vegetariska, 3 tofu, 3 avokado. Serveras med soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"californiarullar","sushi",6,129,,"Californiarullar","10 bitar. Med avokado, lax, crabsticks och gurka. Serveras med majonnäs, soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
+"tempurarullar","sushi",5,159,,"Tempurarullar","10 friterade rullar som innehåller friterade räkor, gurka, avokado. Serveras med chiliMajonnäs samt soja, inlagd ingefära, sjögrässallad, wasabi och misosoppa. Byte av sushibit debiteras i kassan."
