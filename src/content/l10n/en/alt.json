@@ -1,5 +1,5 @@
 {
-  "map": "The location of the restaurant on a map.",
+  "map": "The location of the restaurant on Google maps.",
   "hero": "A plate of Pad Thai placed on a table.",
   "food": "A bowl of bibimbap.",
   "drinks": "A glass of coke."

@@ -108,6 +108,7 @@ const heroImageSrc = `url("${heroImage.src}")`
       <Fragment slot="body">
         <iframe
           class="map"
+          title={l.get('alt', 'map')}
           src={company.mapEmbed}
           width="1200"
           height="600"
