@@ -1,6 +1,6 @@
 {
   "map": "The location of the restaurant on a map.",
-  "food": "A steam cooked dumpling being picked up with chopsticks.",
-  "drinks": "A glass of buble tea with a straw."
-
+  "hero": "A plate of Pad Thai placed on a table.",
+  "food": "A bowl of bibimbap.",
+  "drinks": "A glass of coke."
 }
