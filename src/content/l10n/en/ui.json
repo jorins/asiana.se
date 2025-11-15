@@ -8,9 +8,12 @@
   "lang.en": "Show page in English",
 
   "openingHours.head": "Opening hours",
-  "openingHours.monToFri": "Monday to Friday",
+  "openingHours.closed": "Closed",
+  "openingHours.mon": "Monday",
   "openingHours.sat": "Saturday",
   "openingHours.sun": "Sunday",
+  "openingHours.monToFri": "Monday to Friday",
+  "openingHours.tueToFri": "Tuesday to Friday",
 
   "contact.head": "Contact",
   "contact.address": "Address",
