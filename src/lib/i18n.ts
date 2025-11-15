@@ -79,6 +79,16 @@ export class Localisation {
     }
   }
 
+  hasKey(cat: keyof typeof this.values, key: string) {
+    /**
+     * Check if the given key exists in the current localisation.
+     * May be used to optionally render components.
+     */
+    const l10nCat = this.values[cat]
+    const found = l10nCat?.[key] ?? null;
+    return found !== null
+  }
+
   get(cat: keyof typeof this.values, key: string) {
     const defaultCat = defaultLocalisationValues[cat]
     const l10nCat = this.values[cat]

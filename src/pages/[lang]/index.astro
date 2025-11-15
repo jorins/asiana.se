@@ -18,15 +18,20 @@ import { getLocaleFromUrl, Localisation } from '../../lib/i18n'
 
 import logo from '../../assets/logo-white.svg'
 import heroImage from '../../assets/header_padthai_1.jpg'
+import hotpotImage from '../../assets/hotpot.jpg'
 import foodImage from '../../assets/matbild_bibimbap_2.jpg'
 import drinksImage from '../../assets/dryck_cola_1.jpg'
 
 const locale = getLocaleFromUrl(Astro.url)
 const l = new Localisation(locale)
+
 const hero = await getAndRenderMarkdown(Astro.url, 'index/hero')
+const news = await getAndRenderMarkdown(Astro.url, 'index/news')
+const hotpot = await getAndRenderMarkdown(Astro.url, 'index/hotpot')
 const food = await getAndRenderMarkdown(Astro.url, 'index/food')
 const drinks = await getAndRenderMarkdown(Astro.url, 'index/drinks')
 const location = await getAndRenderMarkdown(Astro.url, 'index/location')
+
 const heroImageSrc = `url("${heroImage.src}")`
 ---
 
@@ -69,9 +74,24 @@ const heroImageSrc = `url("${heroImage.src}")`
             <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
           </ButtonCollection>
           <OpeningHours />
+          <p>
+            <news.Content />
+          </p>
         </div>
       </div>
     </div>
+
+    <Section
+      id="hotpot"
+      image={hotpotImage}
+      imageAlt={l.get('alt', 'hotpot')}
+    >
+      <Fragment slot="head">
+        <hotpot.Content />
+      </Fragment>
+      <Fragment slot="body">
+      </Fragment>
+    </Section>
 
     <Section
       id="food"
