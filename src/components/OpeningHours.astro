@@ -6,20 +6,26 @@ import { Localisation, getLocaleFromUrl } from '../lib/i18n'
 const l = new Localisation(getLocaleFromUrl(Astro.url))
 ---
 
-<DualColumnTable heading={l.get('ui', 'openingHours.head')}>
-  <tr>
-    <td>{l.get('ui', 'openingHours.monToFri')}</td>
-    <td>11:00 - 21:00</td>
-  </tr>
-  <tr>
-    <td>{l.get('ui', 'openingHours.sat')}</td>
-    <td>12:00 - 21:00</td>
-  </tr>
-  <tr>
-    <td>{l.get('ui', 'openingHours.sun')}</td>
-    <td>12:00 - 21:00</td>
-  </tr>
-</DualColumnTable>
+<>
+  <DualColumnTable heading={l.get('ui', 'openingHours.head')}>
+    <tr>
+      <td>{l.get('ui', 'openingHours.monToFri')}</td>
+      <td>11:00 - 21:00</td>
+    </tr>
+    <tr>
+      <td>{l.get('ui', 'openingHours.sat')}</td>
+      <td>12:00 - 21:00</td>
+    </tr>
+    <tr>
+      <td>{l.get('ui', 'openingHours.sun')}</td>
+      <td>12:00 - 21:00</td>
+    </tr>
+  </DualColumnTable>
+  {
+    l.hasKey('ui', 'openingHours.changing') &&
+    <p>{l.get('ui', 'openingHours.changing')}</p>
+  }
+</>
 
 <style lang="scss">
 td {
