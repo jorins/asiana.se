@@ -6,7 +6,7 @@ const l = new Localisation(locale)
 
 ---
 
-<footer>
+<footer class="footer">
   <p class="copyright">&copy; {company.name} {new Date().getFullYear()}</p>
   <div class="content">
     <div class="address">
@@ -25,11 +25,15 @@ const l = new Localisation(locale)
 <style lang="scss">
 @use '../styles/defs';
 
-footer {
+.footer {
   padding: 4rem 4rem 10rem 4rem;
-  background-color: defs.$background;
+  background-color: defs.$background-alt;
   display: flex;
   flex-direction: column;
+
+  &:nth-child(odd) {
+    background-color: defs.$background;
+  }
 }
 
 .copyright {
