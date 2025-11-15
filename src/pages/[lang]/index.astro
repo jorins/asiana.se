@@ -36,110 +36,108 @@ const heroImageSrc = `url("${heroImage.src}")`
 ---
 
 <Layout>
-  <div id="content">
-    <div class="hero-wrapper">
-      <Picture
-        class="hero-image"
-        src={heroImage}
-        alt={l.get('alt', 'hero')}
-        formats={['avif', 'webp']}
-        priority={true}
-        fetchpriority="low"
-        widths={[500, 1000, 1500]}
-        sizes="(max-width: 600px): 500px, (max-width: 80rem): 1000px, 1500px"
-        position="center"
-        layout="full-width" 
-      />
-      <div class="hero">
-        <TopBar />
-        <div class="hero-content">
-          <Picture
-            src={logo}
-            alt="Asiana"
-            priority={true}
-            fetchpriority="high"
-            class:list={["logo"]}
-          />
-          <hero.Content />
-          <ButtonCollection >
-            <AnchorButton
-              href={company.orderLink}
-              target="_blank"
-              title={l.get('ui', 'nav.orderTooltip')}
-              highlight
-              grow='grow'
-            >
-              {l.get('ui', 'nav.order')}
-            </AnchorButton>
-            <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
-          </ButtonCollection>
-          <OpeningHours />
-          <p>
-            <news.Content />
-          </p>
-        </div>
+  <div class="hero-wrapper">
+    <Picture
+      class="hero-image"
+      src={heroImage}
+      alt={l.get('alt', 'hero')}
+      formats={['avif', 'webp']}
+      priority={true}
+      fetchpriority="low"
+      widths={[500, 1000, 1500]}
+      sizes="(max-width: 600px): 500px, (max-width: 80rem): 1000px, 1500px"
+      position="center"
+      layout="full-width" 
+    />
+    <div class="hero">
+      <TopBar />
+      <div class="hero-content">
+        <Picture
+          src={logo}
+          alt="Asiana"
+          priority={true}
+          fetchpriority="high"
+          class:list={["logo"]}
+        />
+        <hero.Content />
+        <ButtonCollection >
+          <AnchorButton
+            href={company.orderLink}
+            target="_blank"
+            title={l.get('ui', 'nav.orderTooltip')}
+            highlight
+            grow='grow'
+          >
+            {l.get('ui', 'nav.order')}
+          </AnchorButton>
+          <AnchorButton href="#location" grow='grow'>{l.get('ui', 'nav.locate')}</AnchorButton>
+        </ButtonCollection>
+        <OpeningHours />
+        <p>
+          <news.Content />
+        </p>
       </div>
     </div>
-
-    <Section
-      id="hotpot"
-      image={hotpotImage}
-      imageAlt={l.get('alt', 'hotpot')}
-    >
-      <Fragment slot="head">
-        <hotpot.Content />
-      </Fragment>
-      <Fragment slot="body">
-      </Fragment>
-    </Section>
-
-    <Section
-      id="food"
-      image={foodImage}
-      imageAlt={l.get('alt', 'food')}
-    >
-      <Fragment slot="head">
-        <food.Content />
-      </Fragment>
-
-      <Fragment slot="body">
-        <ProductTable group='food' />
-      </Fragment>
-    </Section>
-
-    <Section
-      id="drinks"
-      image={drinksImage}
-      imageAlt={l.get('alt', 'drinks')}
-    >
-      <Fragment slot="head">
-        <drinks.Content />
-      </Fragment>
-
-      <Fragment slot="body">
-        <ProductTable group='drinks' />
-      </Fragment>
-    </Section>
-
-    <Section id="location" >
-      <Fragment slot="head">
-        <location.Content />
-      </Fragment>
-      <Fragment slot="body">
-        <iframe
-          class="map"
-          title={l.get('alt', 'map')}
-          src={company.mapEmbed}
-          width="1200"
-          height="600"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer"
-        ></iframe>
-      </Fragment>
-    </Section>
-
   </div>
+
+  <Section
+    id="hotpot"
+    image={hotpotImage}
+    imageAlt={l.get('alt', 'hotpot')}
+  >
+    <Fragment slot="head">
+      <hotpot.Content />
+    </Fragment>
+    <Fragment slot="body">
+    </Fragment>
+  </Section>
+
+  <Section
+    id="food"
+    image={foodImage}
+    imageAlt={l.get('alt', 'food')}
+  >
+    <Fragment slot="head">
+      <food.Content />
+    </Fragment>
+
+    <Fragment slot="body">
+      <ProductTable group='food' />
+    </Fragment>
+  </Section>
+
+  <Section
+    id="drinks"
+    image={drinksImage}
+    imageAlt={l.get('alt', 'drinks')}
+  >
+    <Fragment slot="head">
+      <drinks.Content />
+    </Fragment>
+
+    <Fragment slot="body">
+      <ProductTable group='drinks' />
+    </Fragment>
+  </Section>
+
+  <Section id="location" >
+    <Fragment slot="head">
+      <location.Content />
+    </Fragment>
+    <Fragment slot="body">
+      <iframe
+        class="map"
+        title={l.get('alt', 'map')}
+        src={company.mapEmbed}
+        width="1200"
+        height="600"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer"
+      ></iframe>
+    </Fragment>
+  </Section>
+
   <Footer />
 </Layout>
 
