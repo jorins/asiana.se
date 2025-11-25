@@ -9,7 +9,11 @@ const l = new Localisation(getLocaleFromUrl(Astro.url))
 <>
   <DualColumnTable heading={l.get('ui', 'openingHours.head')}>
     <tr>
-      <td>{l.get('ui', 'openingHours.monToFri')}</td>
+      <td>{l.get('ui', 'openingHours.mon')}</td>
+      <td>{l.get('ui', 'openingHours.closed')}</td>
+    </tr>
+    <tr>
+      <td>{l.get('ui', 'openingHours.tueToFri')}</td>
       <td>11:00 - 21:00</td>
     </tr>
     <tr>
