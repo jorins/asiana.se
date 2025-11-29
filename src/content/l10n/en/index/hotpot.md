@@ -7,3 +7,5 @@ social experience.
 time to prepare the food. Please contact us via <a
     href="mailto:info@asiana.se?subject=Hotpot booking">e-mail</a> or come in
 and talk to us.
+
+Download our information sheet [here](/hotpot.pdf) (currently only in Swedish).

@@ -7,3 +7,5 @@ av den sociala upplevelsen.
 förbereda maten. Vänligen kontakta oss via <a
     href="mailto:info@asiana.se?subject=Hotpot-bokning">e-post</a> eller kom in
 och prata med oss.
+
+Ladda ner vårt informationsblad [här](/hotpot.pdf).
