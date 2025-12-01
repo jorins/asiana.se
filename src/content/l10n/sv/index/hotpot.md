@@ -1,6 +1,4 @@
-# Snart hos oss: Hotpot
-
-*Kommer 2:a december!*
+# Hotpot
 
 Kom och upplev en kinesisk kulinarisk tradition, där tillagningen blir en del
 av den sociala upplevelsen.

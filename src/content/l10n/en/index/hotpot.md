@@ -1,6 +1,4 @@
-# Coming soon: Hotpot
-
-*Coming December 2nd!*
+# Hotpot
 
 Come enjoy a Chinese culinary tradition, where cooking becomes a part of the
 social experience.

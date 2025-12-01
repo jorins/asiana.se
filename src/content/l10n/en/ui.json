@@ -9,11 +9,11 @@
 
   "openingHours.head": "Opening hours",
   "openingHours.closed": "Closed",
-  "openingHours.monToFri": "Monday to Friday",
-  "openingHours.tueToFri": "Tuesday to Friday",
   "openingHours.mon": "Monday",
   "openingHours.sat": "Saturday",
   "openingHours.sun": "Sunday",
+  "openingHours.monToFri": "Monday to Friday",
+  "openingHours.tueToFri": "Tuesday to Friday",
 
   "contact.head": "Contact",
   "contact.address": "Address",

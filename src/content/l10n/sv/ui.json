@@ -9,11 +9,11 @@
 
   "openingHours.head": "Öppettider",
   "openingHours.closed": "Stängt",
-  "openingHours.monToFri": "Måndag till fredag",
-  "openingHours.tueToFri": "Tisdag till fredag",
   "openingHours.mon": "Måndag",
   "openingHours.sat": "Lördag",
   "openingHours.sun": "Söndag",
+  "openingHours.monToFri": "Måndag till fredag",
+  "openingHours.tueToFri": "Tisdag till fredag",
 
   "contact.head": "Kontakt",
   "contact.address": "Adress",
