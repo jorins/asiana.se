@@ -1,24 +1,29 @@
-"slug","category","position","price","spice","name","description"
-"cola","lask",,20,,"Coca-Cola",
-"colaz","lask",,20,,"Coca-Cola Zero",
-"fanta","lask",,20,,"Fanta Orange",
-"fantaz","lask",,20,,"Fanta Zero Orange",
-"sprite","lask",,20,,"Sprite",
-"spritez","lask",,20,,"Sprite Zero",
-"trocadero","lask",,20,,"Trocadero",
-"trocaderoz","lask",,20,,"Trocadero Zero",
-"vattennatur","lask",,20,,"Loka Naturell",
-"vattencitron","lask",,20,,"Loka Citron",
-"smakisparon","lask",,20,,"Smakis Päron",
-"smakisapelsin","lask",,20,,"Smakis Apelsin",
-"smakisjordgubb","lask",,20,,"Smakis Jordgubb",
-"alkofriol","lask",,20,,"Pripps Blå Alkoholfri ",
-"sanktanna","vittvin",,"69;290",,"Sankt Anna","Reisling från Tyskland. Halvtorr med mycket fruktsyra. Druvig, ungdomlig, mycket frisk smak med sötma, inslag av päron, gröna äpplen, mineral, honungsmelon, ananas och lime. 11,5 %."
-"leth","vittvin",,"69;290",,"Leth","Grüner Veltliner från Österrike. Fruktig smak med inslag av päron, honungsmelon, vitpeppar, örter och lime. Bra till vegetariskt eller till rätter av fisk eller kyckling. 12,5 %."
-"bubbles","vittvin",,290,,"Bubbles is best enjoyed with friends","Spanskt mousserande torrt vin. Fruktig smak med inslag av gula äpplen, kex, mineral, päron och citrus med mycket fruktsyra som passar bra till maten men också kan avnjutas med något enkelt tilltugg, 8,5 %."
-"casillero","rottvin",,"69;290",,"Casillero del Diablo","Cabernet Sauvingnon från Chile. Fruktig smak med inslag av fat, svarta vinbär, färska örter, mörka körsbär, skogshallon, choklad och vanilj. Passar bra till all mat, men också bra som sällskapsvin. 13,5 %."
-"cecchi","rottvin",,"69;290",,"Cecchi","Toscana Sangiovese från Italien. Bärig smak med inslag av körsbär, salvia, jordgubbar och björnbär. Passar utmärkt till lättare rätter. 13 %."
-"tsingtao","ol",,80,,"Tsingtao","Öl från Kina. Maltig smak med inslag av ljust knäckebröd, honung och citrus. som sällskapsdryck, till vegetariskt eller till rätter av fisk eller ljust kött. 640 ml. 4,7 %."
-"singha","ol",,60,,"Singha","Ljus lager från Thailand. Brödig smak med inslag av honung, ljust knäckebröd och citrus. Bra till heta asiatiska rätter. 330 ml. 5%."
-"mariestad","ol",,65,,"Mariestad","Ljus lager från Sverige med maltig smak med inslag av ljust bröd, sirap och citrus. Passar bra till nästan all mat, eller sälskapsdryck. 500 ml. 5,3 %."
-"kiviksapple","alkohol",,60,,"Kiviks Ekologisk Äppelcider","Torr cider med fruktig smak med inslag av gröna äpplen, gråpäron, och citrus. Som sällskapsdryck, till rätter av kyckling eller till sallader. 330 ml. 4,5 %."
+"slug","active","category","position","price","spice","name","description"
+"cola","x","lask","","20","","Coca-Cola",""
+"colaz","x","lask","","20","","Coca-Cola Zero",""
+"fanta","x","lask","","20","","Fanta Orange",""
+"fantaz","x","lask","","20","","Fanta Zero Orange",""
+"sprite","x","lask","","20","","Sprite",""
+"spritez","x","lask","","20","","Sprite Zero",""
+"trocadero","x","lask","","20","","Trocadero",""
+"trocaderoz","x","lask","","20","","Trocadero Zero",""
+"vattennatur","x","lask","","20","","Loka Naturell",""
+"vattencitron","x","lask","","20","","Loka Citron",""
+"smakisparon","","lask","","20","","Smakis Päron",""
+"smakisapelsin","","lask","","20","","Smakis Apelsin",""
+"smakisjordgubb","","lask","","20","","Smakis Jordgubb",""
+"alkofriol","x","lask","","20","","Pripps Blå Alkoholfri ",""
+"sanktanna","","vittvin","","69;290","","Sankt Anna","Reisling från Tyskland. Halvtorr med mycket fruktsyra. Druvig, ungdomlig, mycket frisk smak med sötma, inslag av päron, gröna äpplen, mineral, honungsmelon, ananas och lime. 11,5 %."
+"leth","","vittvin","","69;290","","Leth","Grüner Veltliner från Österrike. Fruktig smak med inslag av päron, honungsmelon, vitpeppar, örter och lime. Bra till vegetariskt eller till rätter av fisk eller kyckling. 12,5 %."
+"bubbles","x","vittvin","","290","","Bubbles is best enjoyed with friends","Spanskt mousserande torrt vin. Fruktig smak med inslag av gula äpplen, kex, mineral, päron och citrus med mycket fruktsyra som passar bra till maten men också kan avnjutas med något enkelt tilltugg, 8,5 %."
+"casillerorod","","rottvin","","69;290","","Casillero del Diablo","Cabernet Sauvingnon från Chile. Fruktig smak med inslag av fat, svarta vinbär, färska örter, mörka körsbär, skogshallon, choklad och vanilj. Passar bra till all mat, men också bra som sällskapsvin. 13,5 %."
+"cecchi","x","rottvin","","290","","Cecchi","Toscana Sangiovese från Italien. Bärig smak med inslag av körsbär, salvia, jordgubbar och björnbär. Passar utmärkt till lättare rätter. 13 %."
+"tsingtao","x","ol","","90","","Tsingtao","Öl från Kina. Maltig smak med inslag av ljust knäckebröd, honung och citrus. som sällskapsdryck, till vegetariskt eller till rätter av fisk eller ljust kött. 640 ml. 4,7 %."
+"singha","x","ol","","60","","Singha","Ljus lager från Thailand. Brödig smak med inslag av honung, ljust knäckebröd och citrus. Bra till heta asiatiska rätter. 330 ml. 5%."
+"mariestad","x","ol","","70","","Mariestad","Ljus lager från Sverige med maltig smak med inslag av ljust bröd, sirap och citrus. Passar bra till nästan all mat, eller sälskapsdryck. 500 ml. 5,3 %."
+"kiviksapple","x","alkohol","","60","","Kiviks Ekologisk Äppelcider","Torr cider med fruktig smak med inslag av gröna äpplen, gråpäron, och citrus. Som sällskapsdryck, till rätter av kyckling eller till sallader. 330 ml. 4,5 %."
+"gatonegro","x","rottvin","","130","","Gato Negro","Rött vin. Cabernet Sauvignon, 250 ml (två glas). Mycket fruktig, ungdomlig smak med inslag av fat, svarta vinbär, blåbär, färska örter och choklad. Serveras vid cirka 16°C till rätter av ljust kött, eller till vegetariska rätter."
+"jpchernet","x","rottvin","","130","","JP Chenet","Rött vin. Cabernet-Syrah, 250 ml (två glas). Bärig smak med inslag av svarta vinbär, hallon, färska örter och viol. Serveras vid 14-16°C till lättare rätter av kyckling eller fläskkött, till vegetariska rätter, eller till en buffé."
+"casillerovit","x","vittvin","","130","","Casillero del Diablo","Vitt vin. Chardonnay, 250 ml (två glas). Mycket fruktig smak med fatkaraktär, inslag av äpplen, brynt smör, apelsin, ananas och vanilj. Serveras vid 10-12°C till smakrika vegetariska rätter eller till rätter av fisk eller kyckling, gärna grillat."
+"blacktower","x","vittvin","","130","","Black Tower","Vitt vin. Fruity White, 250 ml (två glas). Druvig, ungdomlig smak med sötma, inslag av päron, honung, persika och lime. Serveras vid 6-8°C som sällskapsdryck eller till asiatiska rätter med sötsur eller kryddstark smaksättning"
+"charles","x","vittvin","","145","","Charles de Fère","Mousserande tort vitt vin. 200 ml (två mindre glas). Fruktig, mycket frisk, ungdomlig smak med inslag av gröna äpplen, kex och lime. Serveras vid 6-8°C som aperitif eller till rätter av fisk eller skaldjur, gärna sallader."

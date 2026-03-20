@@ -18,12 +18,12 @@ convert_sheet() {
   in2csv --sheet="$INPUT_SHEET" "$INPUT_FILE" | csvcut -x | csvformat -U 1 > $2
 }
 
-convert_sheet drinkCategories      testout/src/content/categories/drinks.csv
-convert_sheet foodCategories       testout/src/content/categories/food.csv
-convert_sheet drinks               testout/src/content/products/drinks.csv
-convert_sheet food                 testout/src/content/products/food.csv
+convert_sheet drinkCategories      src/content/categories/drinks.csv
+convert_sheet foodCategories       src/content/categories/food.csv
+convert_sheet drinks               src/content/products/drinks.csv
+convert_sheet food                 src/content/products/food.csv
 
-convert_sheet drinkCategoriesEn    testout/src/content/l10n/en/categories/drinks.csv
-convert_sheet foodCategoriesEn     testout/src/content/l10n/en/categories/food.csv
-convert_sheet drinksEn             testout/src/content/l10n/en/products/drinks.csv
-convert_sheet foodEn               testout/src/content/l10n/en/products/food.csv
+convert_sheet drinkCategoriesEn    src/content/l10n/en/categories/drinks.csv
+convert_sheet foodCategoriesEn     src/content/l10n/en/categories/food.csv
+convert_sheet drinksEn             src/content/l10n/en/products/drinks.csv
+convert_sheet foodEn               src/content/l10n/en/products/food.csv
