@@ -42,6 +42,7 @@ const localisationPromises: Promise<void>[] = []
 
 const sortedProducts = categoryDefs
   .map(category => category.data)
+  .filter(category => category.active)
   .map(category => {
     localisationPromises.push(categoryLocalisation.getEntry(category.slug)
       .then(async entryPromise => {
@@ -56,6 +57,7 @@ const sortedProducts = categoryDefs
   .map(category => {
     const products = productDefs
       .map(product => product.data)
+      .filter(product => product.active)
       .map(product => {
         localisationPromises.push(
           productLocalisation.getEntry(product.slug)

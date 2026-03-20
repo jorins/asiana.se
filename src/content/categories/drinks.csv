@@ -1,8 +1,8 @@
-"slug","position","name","description"
-"lask",1,"Dryck",
-"varmt",2,"Varma drycker",
-"boba",3,"Bubbelte",
-"vittvin",4,"Vitt vin",
-"rottvin",5,"Rött vin",
-"ol",6,"Öl",
-"alkohol",7,"Andra alkoholdrycker",
+"slug","active","position","name","description"
+"lask","x","1","Dryck",""
+"varmt","x","2","Varma drycker",""
+"boba","","3","Bubbelte",""
+"vittvin","x","4","Vitt vin",""
+"rottvin","x","5","Rött vin",""
+"ol","x","6","Öl",""
+"alkohol","x","7","Andra alkoholdrycker",""

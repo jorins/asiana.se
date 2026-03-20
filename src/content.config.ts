@@ -10,6 +10,7 @@ type L10nEntry = z.infer<typeof l10nEntrySchema>
 
 type RawCategoryDefintionKey =
   | 'slug'
+  | 'active'
   | 'position'
   | 'name'
   | 'description'
@@ -18,6 +19,7 @@ type RawCategoryDefinition = Record<RawCategoryDefintionKey, string>
 
 type RawProductDefinitionKey =
   | 'slug'
+  | 'active'
   | 'category'
   | 'position'
   | 'price'
@@ -36,6 +38,7 @@ type RawL10nEntry = Record<RawL10nEntryKey, string>
 
 const categoryDefinitionSchema = z.object({
   slug: z.string(),
+  active: z.boolean(),
   position: z.number(),
   name: z.string(),
   description: z.nullable(z.string()),
@@ -43,6 +46,7 @@ const categoryDefinitionSchema = z.object({
 
 const productDefinitionSchema = z.object({
   slug: z.string(),
+  active: z.boolean(),
   category: z.string(),
   position: z.number(),
   price: z.array(z.nullable(z.number())),
@@ -77,6 +81,7 @@ function parseProductDefinitions(text: string): ProductDefinition[] {
   for (const entry of input) {
     output.push({
       slug: entry.slug,
+      active: Boolean(entry.active),
       position: Number.parseInt(entry.position) || Infinity,
       price: entry.price.split(';').map((priceString: string) => Number.parseInt(priceString) || null),
       spice: Number.parseInt(entry.spice) || 0,
@@ -103,6 +108,7 @@ function parseCategoryDefinitions(text: string): CategoryDefinition[] {
   for (const entry of input) {
     output.push({
       slug: entry.slug,
+      active: Boolean(entry.active),
       position: Number.parseInt(entry.position) || Infinity,
       name: entry.name,
       description: entry.description || null,
