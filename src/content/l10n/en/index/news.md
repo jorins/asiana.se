@@ -1,6 +1,10 @@
 # News
 
-**We once again serve sushi!**
+## New poké bowl flavours
+
+Now served with tofu, salmon, fried chicken, or shrimp! 
+
+## We once again serve sushi
 
 **Please order in advance.**
 

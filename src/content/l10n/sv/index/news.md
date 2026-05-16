@@ -1,6 +1,10 @@
 # Nyheter
 
-**Nu har vi sushi igen!**
+## Nya poké bowl-smaker
+
+Serveras nu med tofu, lax, friterad kyckling, eller räkor!
+
+## Nu serverar vi sushi igen
 
 **Men vi behöver din beställning i god tid.**
 
