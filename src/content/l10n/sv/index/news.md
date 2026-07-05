@@ -4,11 +4,7 @@
 
 Serveras nu med tofu, lax, friterad kyckling, eller räkor!
 
-## Nu serverar vi sushi igen
+## Sushikock på semester
 
-**Men vi behöver din beställning i god tid.**
-
-För att vi ska ha möjlighet att erbjuda god kvalité och bra service när du
-beställer sushi så vill vi att du beställer i god tid. Beställ därför online
-innan du kommer till restaurangen, gärna minst en halv timma innan besöket – så
-slipper du vänta.
+Vår sushikock är på semester och vi serverar därför inte sushi för närvarande.
+Sushi gåt att beställa åter igen från och med 24e juli.
