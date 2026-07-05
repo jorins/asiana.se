@@ -1,8 +1,3 @@
-# Midsommarstängt
-
-Vi har stängt från och med fredag 19 Juni till och med måndag 22 Juni. Ha en
-strålande midsommar!
-
 # Nyheter
 
 ## Nya poké bowl-smaker
