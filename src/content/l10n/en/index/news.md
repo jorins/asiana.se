@@ -1,8 +1,3 @@
-# Closed over Midsummer
-
-We are closed from Friday the 19th of June until Monday the 22nd of June.
-Have a wonderful midsummer!
-
 # News
 
 ## New poké bowl flavours
