@@ -17,15 +17,9 @@ jobs:
     name: CD
     needs: ci
     uses: ./.github/workflows/deploy-cloudflare-pages.yml
-
-    environment:
-      name: cf-preview
-      url: ${{ jobs.cd.outputs.url }}
+    secrets: inherit
 
     with:
+      github-env: "cf-preview"
       artifact-name: ${{ needs.ci.outputs.artifact-name }}
       artifact-path: ${{ needs.ci.outputs.artifact-path }}
-      project-name: ${{ vars.CLOUDFLARE_ENVIRONMENT }}
-      deployment-environment: ${{ vars.CLOUDFLARE_ENVIRONMENT }}
-      account-id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
