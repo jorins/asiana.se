@@ -1,4 +1,4 @@
-name: Deploy website to Cloudflare pages
+name: Deploy website to Cloudflare Workers
 
 on:
   workflow_call:
@@ -33,7 +33,7 @@ jobs:
           path: ${{ inputs.artifact-path }}
 
       - id: deploy
-        name: Deploy to Cloudflare pages
+        name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

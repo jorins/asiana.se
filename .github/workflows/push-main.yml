@@ -16,9 +16,9 @@ jobs:
   cd:
     name: CD
     needs: ci
-    uses: ./.github/workflows/deploy-cloudflare-pages.yml
+    uses: ./.github/workflows/deploy-cloudflare-workers.yml
 
     with:
-      github-env: "cf-prod"
+      github-env: cf-prod
       artifact-name: ${{ needs.ci.outputs.artifact-name }}
       artifact-path: ${{ needs.ci.outputs.artifact-path }}
