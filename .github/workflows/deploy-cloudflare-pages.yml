@@ -12,11 +12,6 @@ on:
       artifact-path:
         required: true
         type: string
-    secrets:
-      account-id:
-        required: true
-      api-token:
-        required: true
 
 jobs:
   deploy:
