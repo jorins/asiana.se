@@ -13,10 +13,6 @@ on:
         required: true
         type: string
 
-permissions:
-  pages: write
-  id-token: write
-
 jobs:
   deploy:
     name: Deploy website
