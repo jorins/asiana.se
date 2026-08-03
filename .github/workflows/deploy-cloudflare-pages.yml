@@ -12,6 +12,9 @@ on:
       env-name:
         required: true
         type: string
+    secrets:
+      api-token:
+        required: true
 
 jobs:
   deploy:

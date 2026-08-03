@@ -21,3 +21,4 @@ jobs:
       artifact-name: ${{ needs.ci.outputs.artifact-name }}
       artifact-path: ${{ needs.ci.outputs.artifact-path }}
       env-name: cf-prod
+      api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
