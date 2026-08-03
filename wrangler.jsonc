@@ -1,5 +1,15 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "asiana",
   "compatibility_date": "2026-08-03",
   "preview_urls": true,
+  "no_bundle": true,
+  "env": {
+    "production": {
+      "route": "asiana.reg-cloudflare-971.workers.dev",
+    },
+    "preview": {
+      "route": "preview-asiana.reg-cloudflare-971.workers.dev",
+    }
+  }
 }

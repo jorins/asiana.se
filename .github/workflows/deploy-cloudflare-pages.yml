@@ -41,7 +41,4 @@ jobs:
           command: >
             deploy
             ${{ inputs.artifact-path }}
-            --no-bundle
-            --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
-            --env=${{ vars.CLOUDFLARE_DEPLOYMENT_ENVIRONMENT}}
-            --compatibility-date 2026-08-03
+            --env=${{ vars.CLOUDFLARE_ENVIRONMENT}}
