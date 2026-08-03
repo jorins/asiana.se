@@ -26,6 +26,10 @@ jobs:
       url: ${{ steps.deploy.outputs.deployment_url }}
 
     steps:
+      # We check out to get wrangler.jsonc
+      - name: Check out
+        uses: actions/checkout@v7
+
       - name: Download build artifact
         uses: actions/download-artifact@v8
         with:
