@@ -1,0 +1,53 @@
+name: Deploy website to Cloudflare Workers
+
+on:
+  workflow_call:
+    inputs:
+      github-env:
+        required: true
+        type: string
+      artifact-name:
+        required: true
+        type: string
+      artifact-path:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    outputs:
+      url: ${{ steps.deploy.outputs.deployment-url }}
+
+    environment:
+      name: ${{ inputs.github-env }}
+      url: ${{ steps.deploy.outputs.deployment_url }}
+
+    steps:
+      # We check out to get wrangler.jsonc
+      - name: Check out
+        uses: actions/checkout@v7
+
+      # Wrangler requires a node package manager and will try to use one
+      # as defined by package.json (unless overridden), so we provide pnpm.
+      - name: Set up pnpm
+        uses: pnpm/setup@v1
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: ${{ inputs.artifact-path }}
+
+      - id: deploy
+        name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >
+            deploy
+            ${{ inputs.artifact-path }}
+            --env=${{ vars.CLOUDFLARE_ENVIRONMENT}}

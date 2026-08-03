@@ -87,7 +87,7 @@ const growDesktopClass =
     background-color: defs.$green;
 
     &:hover {
-      color: unset;
+      color: color.adjust(defs.$highlight, $lightness: +10%);
       background-color: color.adjust(defs.$green, $lightness: +10%, $saturation: -10%)
     }
   }
