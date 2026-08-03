@@ -38,4 +38,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }} --branch=${{ vars.CLOUDFLARE_DEPLOYMENT_ENVIRONMENT}}
+          command: >
+            deploy
+            ${{ inputs.artifact-path }}
+            --no-bundle
+            --name=${{ vars.CLOUDFLARE_PROJECT_NAME }}
+            --env=${{ vars.CLOUDFLARE_DEPLOYMENT_ENVIRONMENT}}
