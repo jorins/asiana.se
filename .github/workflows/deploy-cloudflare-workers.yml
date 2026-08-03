@@ -30,6 +30,11 @@ jobs:
       - name: Check out
         uses: actions/checkout@v7
 
+      # Wrangler requires a node package manager and will try to use one
+      # as defined by package.json (unless overridden), so we provide pnpm.
+      - name: Set up pnpm
+        uses: pnpm/setup@v1
+
       - name: Download build artifact
         uses: actions/download-artifact@v8
         with:
