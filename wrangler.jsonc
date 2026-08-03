@@ -5,13 +5,7 @@
   "preview_urls": true,
   "no_bundle": true,
   "env": {
-    "production": {
-      "route": "asiana",
-      "workers_dev": true,
-    },
-    "preview": {
-      "route": "preview-asiana",
-      "workers_dev": true,
-    }
+    "production": {},
+    "preview": {}
   }
 }
