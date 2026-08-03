@@ -1,0 +1,42 @@
+name: Deploy website to Cloudflare pages
+
+on:
+  workflow_call:
+    inputs:
+      artifact-name:
+        required: true
+        type: string
+      artifact-path:
+        required: true
+        type: string
+      env-name:
+        required: true
+        type: string
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    environment:
+      name: ${{ inputs.env-name }}
+      url: ${{ steps.deploy.outputs.deployment-url }}
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+          path: ${{ inputs.artifact-path }}
+
+      - id: deploy
+        name: Deploy to Cloudflare pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME }} --branch=${{ vars.CLOUDFLARE_ENVIRONMENT }}

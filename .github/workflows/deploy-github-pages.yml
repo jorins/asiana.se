@@ -1,4 +1,4 @@
-name: Deploy website
+name: Deploy website to GitHub pages
 
 on:
   workflow_call:
