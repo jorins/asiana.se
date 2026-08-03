@@ -6,10 +6,12 @@
   "no_bundle": true,
   "env": {
     "production": {
-      "route": "asiana.reg-cloudflare-971.workers.dev",
+      "route": "asiana",
+      "workers_dev": true,
     },
     "preview": {
-      "route": "preview-asiana.reg-cloudflare-971.workers.dev",
+      "route": "preview-asiana",
+      "workers_dev": true,
     }
   }
 }
