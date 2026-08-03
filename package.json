@@ -25,6 +25,7 @@
   "packageManager": "pnpm@10.19.0",
   "devDependencies": {
     "type-fest": "^4.41.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.118.0"
   }
 }
