@@ -1,5 +1,4 @@
-# Nyheter
+# Ettårsjubileum
 
-## Nya poké bowl-smaker
-
-Serveras nu med tofu, lax, friterad kyckling, eller räkor!
+Nu har vi funnits i ett helt år! Det firar vi med sänkt pris på röd curry,
+kycklingwok och wokad tofu! Kom och ät för bara en hundralapp!
